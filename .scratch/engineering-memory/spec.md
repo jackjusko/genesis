@@ -150,7 +150,7 @@ Detail: [issues/13-plan-sized-architecture-handoff.md](issues/13-plan-sized-arch
 
 **Cite vs paraphrase:** conventions = standing preferences (always-on / skim); skills = procedures and catalogs. Never paste a whole skill into the Store.
 
-**Install stub:** drop [prototypes/conventions-md-stub.md](prototypes/conventions-md-stub.md) (without the PROTOTYPE banner; keep the Install marker). Sections in order: purpose → Deep modules → Tests & seams → Long-term bias → Skill pointers → empty Project-specific.
+**Install stub:** drop [prototypes/conventions-md-stub.md](prototypes/conventions-md-stub.md) (without the PROTOTYPE banner; keep the Install marker). Structure (order fixed): H1 `# Conventions` + purpose preamble → exact H2s `## Deep modules` → `## Tests & seams` → `## Long-term bias` → `## Skill pointers` → `## Project-specific`. Those five H2 titles are the interactive-merge required-section contract (add missing only; preserve existing conventions). Purpose is not a separate H2. Deep modules paraphrase `/codebase-design` soft defaults + vocabulary; Tests & seams hold Designing for testability (`/codebase-design`) plus `/tdd` standing prefs (not the red→green ritual); Project-specific starts empty aside from a guidance comment.
 
 ## Open questions / deferred
 

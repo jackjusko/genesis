@@ -1,6 +1,7 @@
 <!-- engineering-memory:install -->
 <!-- PROTOTYPE — candidate Memory Install drop-in for docs/conventions.md.
-     Not production Store content. React to sections, paraphrase depth, and pointers. -->
+     Not production Store content. React to sections, paraphrase depth, and pointers.
+     Install keeps the marker line; strips this PROTOTYPE comment only. -->
 
 # Conventions
 
@@ -15,18 +16,17 @@ Use this vocabulary exactly (do not substitute “service,” “API,” or “b
 - **Depth** is leverage at the interface — behaviour callers can exercise per unit of interface they must learn — not an implementation-line count.
 - **Deletion test:** if deleting the module only moves complexity to callers, it was earning its keep; if complexity vanishes, it was a pass-through.
 - **One adapter** = hypothetical seam; **two adapters** = real seam. Don’t invent ports for fashion.
-- The **interface is the test surface**: callers and tests cross the same seam.
 
 For deepening or redesign workflows, invoke `/codebase-design` (and its companions). Do not paste skill bodies here.
 
 ## Tests & seams
 
-Standing preferences when tests touch design (the red→green ritual stays in `/tdd`):
+Standing preferences for how design and tests meet. **Designing for testability** is from `/codebase-design`; behaviour / seam / survive-refactor prefs are from `/tdd`. The red→green ritual, seam-confirmation procedure, and anti-pattern detail stay in `/tdd` — invoke the habit; do not paste them here.
 
-- Verify behaviour through public **interfaces**, not internals.
-- Place tests at agreed **seams**.
+- The **interface is the test surface**: callers and tests cross the same seam. Verify behaviour through public interfaces, not internals.
 - Accept dependencies; don’t create them inside the unit under test.
 - Prefer returning results over hidden side effects where practical.
+- Place tests at agreed **seams**.
 - Prefer tests that survive internal refactors.
 
 When writing or changing code, use `/tdd` for the habit and procedure detail.
