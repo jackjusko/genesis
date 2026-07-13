@@ -41,7 +41,7 @@ A written design/spec for **Cursor Engineering Memory** — Memory Store + Memor
 - [What stub does Memory Install drop for the AGENTS.md Engineering Memory section?](issues/11-agents-md-section-stub.md) — Index-only stub: Store paths (02 order) + Loop rule/skills + Planning non-ownership; heading is ours marker; see prototypes/agents-md-engineering-memory-section.md.
 - [What is the exact body of the engineering-memory always-on rule?](issues/12-always-on-rule-body.md) — Locked `.mdc` body: Sync via AGENTS index; Bias (ordinary vs plan-sized + three modes, handoff deferred to 13); `/tdd` habit; see prototypes/engineering-memory-always-on-rule.md.
 - [How does the plan-sized Architecture Bias gate hand off to planning?](issues/13-plan-sized-architecture-handoff.md) — Stop → three-mode chooser (Critical only default) → Wayfinder Destination=arch decision outside Store → Review-aligned fold-back (offer ADR) then implement; Automatic never skips fold-back; resume=map path.
-- [What stub prose remains for other Memory Install Store drops?](issues/14-remaining-install-stubs.md) — CONTEXT / adr README / architecture dir README stubs locked with Install markers; see prototypes/.
+- [What stub prose remains for other Memory Install Store drops?](issues/14-remaining-install-stubs.md) — CONTEXT (Domain + empty Language), adr README (thin ADR + naming), architecture/README (pointer only); markers kept; see prototypes/.
 
 ## Not yet specified
 

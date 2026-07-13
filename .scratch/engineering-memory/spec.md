@@ -51,7 +51,17 @@ Install drops the template validated in [prototypes/architecture-md-template.md]
 
 **Deep-dive index:** Table (`Deep-dive` | `When to open it`) in the primary doc; links `architecture/<kebab-slug>.md`. Install starts with `_(none yet)_`; first earn **replaces** that row. No pre-seeded deep-dive files.
 
-Stub prose for other Store paths: [CONTEXT.md](prototypes/context-md-stub.md), [docs/adr/README.md](prototypes/adr-readme-stub.md), [docs/architecture/README.md](prototypes/architecture-dir-readme-stub.md). Brownfield merge: see Memory Install.
+### Other Store Install stubs
+
+Keep `<!-- engineering-memory:install -->`; strip PROTOTYPE comments only. Create rules match the Install file table above. Detail: [issues/14-remaining-install-stubs.md](issues/14-remaining-install-stubs.md).
+
+| Path | Prototype | Stub depth |
+|------|-----------|------------|
+| `CONTEXT.md` | [context-md-stub.md](prototypes/context-md-stub.md) | H1 `# Domain` (rename to context name when known) + glossary-only preamble (ADR pointer; grow via `/domain-modeling`) + empty `## Language` with CONTEXT-FORMAT pattern comment — no seeded terms |
+| `docs/adr/README.md` | [adr-readme-stub.md](prototypes/adr-readme-stub.md) | Purpose (Bias overrides; never rewrite existing; no sample ADRs) + `NNNN-kebab-title.md` naming + thin ADR cue (title + 1–3 sentences) |
+| `docs/architecture/README.md` | [architecture-dir-readme-stub.md](prototypes/architecture-dir-readme-stub.md) | Folder pointer only (not the primary corpus) → link `docs/architecture.md`; kebab-case earned deep-dives; index from primary Deep-dives table; no pre-seed |
+
+Brownfield merge: see Memory Install.
 
 ## Memory Loop
 
