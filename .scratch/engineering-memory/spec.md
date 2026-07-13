@@ -19,17 +19,27 @@ No optional sync skill. Explore subagent is invoke-only (Architecture Review), n
 
 ## Memory Store
 
-Full-scaffold Memory Install lays down exactly this closed set (canonical paths agents must use):
+**Canonical paths** agents must use (closed set; no aliases):
 
 | Path | Role |
 |------|------|
-| `CONTEXT.md` | Domain glossary (create stub if missing) |
-| `docs/adr/` | ADRs (ensure dir; short README when new; no sample ADRs) |
+| `CONTEXT.md` | Domain glossary (repo root) |
+| `docs/adr/` | ADRs |
+| `docs/architecture.md` | Primary Architecture Corpus doc |
+| `docs/architecture/` | Deep-dives (earned only) |
+| `docs/conventions.md` | Architecture Bias / standing preferences |
+
+**Full-scaffold Install file drops** (create these; stub bodies linked below / in prototypes):
+
+| File | Rule |
+|------|------|
+| `CONTEXT.md` | Stub only if missing |
+| `docs/adr/README.md` | Ensure `docs/adr/`; README when folder new / README missing; no sample ADRs |
 | `docs/architecture.md` | Primary architecture doc |
-| `docs/architecture/` | Deep-dives (pointer README only on install) |
+| `docs/architecture/README.md` | Ensure `docs/architecture/`; pointer README only; no pre-seeded deep-dives |
 | `docs/conventions.md` | Conventions stub |
 
-Deep-dives are added later as kebab-case files under `docs/architecture/` when a subsystem has earned its own home — never pre-seeded. No default `CONTEXT-MAP.md`. Nothing else is Memory Store (no parallel `memory/` tree; planning/wayfinder maps stay outside the Store).
+Deep-dives are added later as kebab-case files under `docs/architecture/` when a subsystem has earned its own home — never pre-seeded. No default `CONTEXT-MAP.md`. Nothing else is Memory Store: no parallel `memory/` tree; `AGENTS.md` `## Engineering Memory` is Loop index (not Store); planning/wayfinder maps stay outside the Store.
 
 ### Primary architecture doc (`docs/architecture.md`)
 
