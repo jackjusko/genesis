@@ -71,7 +71,7 @@ Closed inventory (detail: [issues/07-loop-artifact-inventory.md](issues/07-loop-
 
 ## Memory Install
 
-Brownfield-safe full scaffold of the project-local Store + `AGENTS.md` Engineering Memory section. Hybrid packaging and global Loop refresh (always replace packaged latest from package root, then project preflight; no globals rollback on conflict) live under Product & packaging / [ticket 08](issues/08-global-skill-updates.md). This section locks **conflict and merge** only. Project Store + AGENTS index never auto-upgrade when stubs advance — ours → skip.
+Brownfield-safe full scaffold of the project-local Store + `AGENTS.md` Engineering Memory section. Hybrid packaging and global Loop refresh (always replace packaged latest from package root, then project preflight; no globals rollback on conflict) live under Product & packaging / [ticket 08](issues/08-global-skill-updates.md). This section locks **conflict, merge, and ours recognition**. Project Store + AGENTS index never auto-upgrade when stubs advance — ours → skip.
 
 **Preflight set:** every path Install would create — Store install files (Memory Store) plus `AGENTS.md` § Engineering Memory.
 
@@ -81,7 +81,15 @@ Brownfield-safe full scaffold of the project-local Store + `AGENTS.md` Engineeri
 | **ours** | Recognized Engineering Memory Install artifact | **Skip** (not a conflict) |
 | **conflict** | Exists and is not ours; or file↔directory type mismatch | Block (atomic fail) |
 
-Exact **ours** recognition (file markers, AGENTS heading) is [issues/10-install-ours-markers.md](issues/10-install-ours-markers.md).
+**Ours recognition** (detail: [issues/10-install-ours-markers.md](issues/10-install-ours-markers.md)):
+
+| Target | Ours iff |
+|--------|----------|
+| `CONTEXT.md`, `docs/architecture.md`, `docs/conventions.md`, `docs/adr/README.md`, `docs/architecture/README.md` | After optional UTF-8 BOM strip, within the first **20 physical lines**, a line trims to exactly `<!-- engineering-memory:install -->` (case-sensitive; no other text on the line; no version suffix in v1) |
+| `AGENTS.md` § Engineering Memory | A physical line trims to exactly `## Engineering Memory` (case-sensitive ATX `##`) — heading present → skip section rewrite even if body diverged; heading absent → missing |
+| `docs/adr/`, `docs/architecture/` | Directory exists (any contents) |
+
+Marker loss on an Install-seeded file → not ours → conflict on the next recreate. Prefer agents leave the marker. No fingerprinting, frontmatter, or “looks like stub” heuristics. Globals: no ours class (always replace). Earned ADRs / deep-dives: never Install recreates; no marker required.
 
 **Directory rules:** Existing `docs/adr/` / `docs/architecture/` dirs are never conflicts. Existing ADRs and deep-dives are never Install recreates and never conflicts. A new file Install would drop inside those dirs (pointer READMEs) conflicts only if that file already exists and isn’t ours.
 
