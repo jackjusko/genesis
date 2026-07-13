@@ -48,6 +48,12 @@ describe("runMemoryInstall integration", () => {
         .readFileSync(path.join(projectRoot, "CONTEXT.md"), "utf8")
         .includes("<!-- engineering-memory:install -->"),
     );
+    assert.ok(fs.existsSync(path.join(projectRoot, "docs", "product.md")));
+    assert.ok(
+      fs
+        .readFileSync(path.join(projectRoot, "docs", "product.md"), "utf8")
+        .includes("<!-- engineering-memory:install -->"),
+    );
     assert.ok(fs.existsSync(path.join(projectRoot, "docs", "architecture.md")));
     assert.ok(fs.existsSync(path.join(projectRoot, "docs", "conventions.md")));
     assert.ok(fs.existsSync(path.join(projectRoot, "docs", "adr", "README.md")));
@@ -57,12 +63,14 @@ describe("runMemoryInstall integration", () => {
     const agents = fs.readFileSync(path.join(projectRoot, "AGENTS.md"), "utf8");
     assert.ok(agents.includes("## Engineering Memory"));
     assert.ok(agents.includes("## Agent skills"));
+    assert.match(agents, /product intent/i);
     const storeBlock = agents.slice(
       agents.indexOf("### Memory Store"),
       agents.indexOf("### Loop"),
     );
     const storeOrder = [
       "CONTEXT.md",
+      "docs/product.md",
       "docs/adr/",
       "docs/architecture.md",
       "docs/architecture/",
@@ -117,6 +125,32 @@ describe("runMemoryInstall integration", () => {
       assert.equal(result.ok, false);
       assert.ok(result.project.conflicts.includes("CONTEXT.md"));
       assert.equal(fs.existsSync(path.join(conflictRoot, "docs", "architecture.md")), false);
+      assert.equal(fs.existsSync(path.join(conflictRoot, "docs", "product.md")), false);
+    } finally {
+      fs.rmSync(conflictRoot, { recursive: true, force: true });
+    }
+  });
+
+  it("foreign docs/product.md conflicts without writing", () => {
+    const conflictRoot = mkTmp("em-product-conflict-");
+    try {
+      fs.mkdirSync(path.join(conflictRoot, "docs"), { recursive: true });
+      fs.writeFileSync(
+        path.join(conflictRoot, "docs", "product.md"),
+        "# Someone else's product brief\n",
+      );
+      const result = runMemoryInstall({
+        projectRoot: conflictRoot,
+        packageRoot,
+        skipGlobals: true,
+      });
+      assert.equal(result.ok, false);
+      assert.ok(result.project.conflicts.includes("docs/product.md"));
+      assert.equal(fs.existsSync(path.join(conflictRoot, "CONTEXT.md")), false);
+      assert.equal(
+        fs.readFileSync(path.join(conflictRoot, "docs", "product.md"), "utf8"),
+        "# Someone else's product brief\n",
+      );
     } finally {
       fs.rmSync(conflictRoot, { recursive: true, force: true });
     }

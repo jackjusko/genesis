@@ -30,6 +30,14 @@ describe("classifyPath", () => {
       }),
       "ours",
     );
+    assert.equal(
+      classifyPath({
+        kind: "file",
+        exists: true,
+        content: "<!-- engineering-memory:install -->\n# Product Intent\n",
+      }),
+      "ours",
+    );
   });
 
   it("classifies existing file without marker as conflict", () => {
@@ -38,6 +46,14 @@ describe("classifyPath", () => {
         kind: "file",
         exists: true,
         content: "# Foreign architecture\n",
+      }),
+      "conflict",
+    );
+    assert.equal(
+      classifyPath({
+        kind: "file",
+        exists: true,
+        content: "# Foreign product brief\n",
       }),
       "conflict",
     );

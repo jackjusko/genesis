@@ -1,10 +1,11 @@
 ## Engineering Memory
 
-Index of this repo's Memory Store and Loop wiring. Load these when the session touches structure, domain language, or conventions.
+Index of this repo's Memory Store and Loop wiring. Load these when the session touches product intent, structure, domain language, or conventions.
 
 ### Memory Store
 
 - [`CONTEXT.md`](CONTEXT.md) — domain glossary
+- [`docs/product.md`](docs/product.md) — Product Intent (identity / vision / goals / non-goals)
 - [`docs/adr/`](docs/adr/) — ADRs / hard overrides
 - [`docs/architecture.md`](docs/architecture.md) — primary Architecture Corpus doc
 - [`docs/architecture/`](docs/architecture/) — earned deep-dives (kebab-case)

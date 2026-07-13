@@ -7,6 +7,7 @@ describe("INSTALL_PATHS", () => {
     const ids = INSTALL_PATHS.map((p) => p.id);
     assert.deepEqual(ids, [
       "CONTEXT.md",
+      "docs/product.md",
       "docs/adr",
       "docs/adr/README.md",
       "docs/architecture.md",
@@ -34,6 +35,7 @@ describe("preflight", () => {
   it("fully ours → clean no-op (no missing)", () => {
     const oursFiles = new Set([
       "CONTEXT.md",
+      "docs/product.md",
       "docs/adr/README.md",
       "docs/architecture.md",
       "docs/architecture/README.md",
@@ -62,19 +64,22 @@ describe("preflight", () => {
   it("any conflict → not ok, lists all conflicts, no writes implied", () => {
     const result = preflight({
       read: (rel) => {
+        if (rel === "docs/product.md") return "# Foreign product\n";
         if (rel === "docs/architecture.md") return "# Foreign\n";
         if (rel === "docs/conventions.md") return "# Also foreign\n";
         return null;
       },
       exists: (rel) =>
-        rel === "docs/architecture.md" || rel === "docs/conventions.md",
+        rel === "docs/product.md" ||
+        rel === "docs/architecture.md" ||
+        rel === "docs/conventions.md",
       isDirectory: () => false,
       isFile: () => false,
     });
     assert.equal(result.ok, false);
     assert.deepEqual(
       result.conflicts.map((c) => c.id).sort(),
-      ["docs/architecture.md", "docs/conventions.md"],
+      ["docs/architecture.md", "docs/conventions.md", "docs/product.md"],
     );
   });
 

@@ -38,6 +38,10 @@ const PAIRS = [
     packaged: "skills/memory-install/templates/agents-md-engineering-memory-section.md",
   },
   {
+    prototype: "product-md-stub.md",
+    packaged: "skills/memory-install/templates/docs/product.md",
+  },
+  {
     prototype: "architecture-md-template.md",
     packaged: "skills/memory-install/templates/docs/architecture.md",
   },
@@ -70,6 +74,21 @@ describe("packaged Install drops match locked prototypes", () => {
     });
   }
 
+  it("docs/product.md stub keeps locked Product Intent H2 contract", () => {
+    const body = normalize(read("skills/memory-install/templates/docs/product.md"));
+    assert.match(body, /^# Product Intent\s*$/m);
+    const h2s = [...body.matchAll(/^## (.+)$/gm)].map((m) => m[1]);
+    assert.deepEqual(h2s, [
+      "What this is",
+      "Vision",
+      "Goals",
+      "Non-goals",
+      "Out of scope for this doc",
+    ]);
+    assert.match(body, /<!-- engineering-memory:install -->/);
+    assert.match(body, /_TODO:/);
+  });
+
   it("always-on rule Sync loads via AGENTS index (no embedded Store path list)", () => {
     const rule = read("rules/engineering-memory.mdc");
     assert.match(rule, /via the project `## Engineering Memory` AGENTS\.md index/);
@@ -95,6 +114,7 @@ describe("packaged Install drops match locked prototypes", () => {
     );
     const order = [
       "CONTEXT.md",
+      "docs/product.md",
       "docs/adr/",
       "docs/architecture.md",
       "docs/architecture/",
@@ -106,6 +126,11 @@ describe("packaged Install drops match locked prototypes", () => {
       assert.ok(idx > last, `expected ${p} after previous Store path`);
       last = idx;
     }
+    assert.match(
+      section,
+      /product intent/i,
+      "load cue should mention product intent",
+    );
   });
 });
 

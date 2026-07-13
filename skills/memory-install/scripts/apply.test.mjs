@@ -25,6 +25,7 @@ describe("planProjectWrites", () => {
     const plan = planProjectWrites(result);
     assert.ok(plan.every((p) => p.action === "create" || p.action === "mkdir" || p.action === "append-section"));
     assert.ok(plan.some((p) => p.id === "CONTEXT.md" && p.action === "create"));
+    assert.ok(plan.some((p) => p.id === "docs/product.md" && p.action === "create"));
     assert.ok(plan.some((p) => p.id === "docs/adr" && p.action === "mkdir"));
     assert.ok(plan.some((p) => p.id === "AGENTS.md" && p.action === "append-section"));
   });
@@ -32,6 +33,7 @@ describe("planProjectWrites", () => {
   it("plans nothing when fully installed", () => {
     const oursFiles = new Set([
       "CONTEXT.md",
+      "docs/product.md",
       "docs/adr/README.md",
       "docs/architecture.md",
       "docs/architecture/README.md",

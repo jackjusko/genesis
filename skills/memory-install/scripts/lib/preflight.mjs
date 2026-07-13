@@ -3,6 +3,12 @@ import { classifyPath } from "./classify.mjs";
 /** Closed set of Memory Install project targets (canonical paths). */
 export const INSTALL_PATHS = [
   { id: "CONTEXT.md", rel: "CONTEXT.md", kind: "file", template: "CONTEXT.md" },
+  {
+    id: "docs/product.md",
+    rel: "docs/product.md",
+    kind: "file",
+    template: "docs/product.md",
+  },
   { id: "docs/adr", rel: "docs/adr", kind: "dir" },
   {
     id: "docs/adr/README.md",

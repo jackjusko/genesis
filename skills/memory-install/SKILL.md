@@ -45,7 +45,7 @@ The CLI classifies every Install path as **missing**, **ours**, or **conflict**:
 
 | Path | Ours when |
 |------|-----------|
-| `CONTEXT.md`, `docs/architecture.md`, `docs/conventions.md`, `docs/adr/README.md`, `docs/architecture/README.md` | `<!-- engineering-memory:install -->` in first 20 lines |
+| `CONTEXT.md`, `docs/product.md`, `docs/architecture.md`, `docs/conventions.md`, `docs/adr/README.md`, `docs/architecture/README.md` | `<!-- engineering-memory:install -->` in first 20 lines |
 | `docs/adr/`, `docs/architecture/` | directory exists |
 | `AGENTS.md` § Engineering Memory | heading `## Engineering Memory` present |
 
@@ -60,6 +60,7 @@ Non-canonical architecture docs (`ARCHITECTURE.md`, etc.) are **warnings only**,
 |------|------|
 | `AGENTS.md` | Section append/update only; never whole-file replace; diff + confirm |
 | `CONTEXT.md` | Preserve glossary; no term rewrites; optional pointer if no EM linkage |
+| `docs/product.md` | Add missing required template H2s only; never delete prose; confirm |
 | `docs/architecture.md` | Add missing required template sections only; never delete prose; confirm |
 | `docs/conventions.md` | Add missing seed sections only; preserve existing conventions; confirm |
 | Type mismatch | Ask — no auto rename/delete |

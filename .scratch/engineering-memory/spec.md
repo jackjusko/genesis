@@ -45,7 +45,11 @@ Deep-dives are added later as kebab-case files under `docs/architecture/` when a
 
 ### Product Intent (`docs/product.md`)
 
-Durable project identity, vision, goals, and non-goals. Install scaffolds the stub (exact H2 contract + prototype body: [Product Intent in Memory Ops](../product-intent/map.md) ticket 02). Ideas, PRD drafts, and wayfinder maps remain planning-layer (e.g. `.scratch/`) until fold-back. Vision does **not** live in `CONTEXT.md`. Agents must not invent goals the user never stated. v1 capture is Store Sync + fold-back only — no dedicated Product Intent skill.
+Durable project identity, vision, goals, and non-goals. Install drops the stub validated in [prototypes/product-md-stub.md](prototypes/product-md-stub.md). Keep `<!-- engineering-memory:install -->`; strip the PROTOTYPE comment only. Ideas, PRD drafts, and wayfinder maps remain planning-layer (e.g. `.scratch/`) until fold-back. Vision does **not** live in `CONTEXT.md`. Agents must not invent goals the user never stated. v1 capture is Store Sync + fold-back only — no dedicated Product Intent skill.
+
+**Structure (order fixed):** H1 `# Product Intent` + opening preamble (purpose, Store pointers, how-to-use + do-not-invent rule) → exact H2s `## What this is` → `## Vision` → `## Goals` → `## Non-goals` → `## Out of scope for this doc`. Those five H2 titles are the interactive-merge required-section contract (add missing only; never delete prose). Opening is not a separate H2.
+
+**Stub depth:** Repo-independent prose filled (opening, out-of-scope). Repo-specific sections: HTML guidance comments + `_TODO_` placeholders. Not empty headings, not fictional product copy.
 
 ### Primary architecture doc (`docs/architecture.md`)
 
@@ -73,7 +77,7 @@ Brownfield merge: see Memory Install.
 
 Closed inventory (detail: [issues/07-loop-artifact-inventory.md](issues/07-loop-artifact-inventory.md)): four Install-owned surfaces (AGENTS index + always-on rule + Memory Install + Architecture Review) and Explore invoke-only. Exact stub/rule bodies: tickets 11–12 / prototypes linked below.
 
-**Project — `## Engineering Memory` in AGENTS.md:** index only. Exact Install stub: [prototypes/agents-md-engineering-memory-section.md](prototypes/agents-md-engineering-memory-section.md) (strip PROTOTYPE comment; ours marker is the heading — no HTML install marker). H3 clusters: **Memory Store** (canonical Store paths — include `docs/product.md` when Install scaffolds it; path list order owned with the AGENTS stub), **Loop** (always-on rule title/slug + three duties named, body not pasted; Memory Install + Architecture Review display+slug), **Planning** (ideas, PRDs, and wayfinder/maps are not Store paths until fold-back). No procedure bodies, sync checklists, or conventions prose.
+**Project — `## Engineering Memory` in AGENTS.md:** index only. Exact Install stub: [prototypes/agents-md-engineering-memory-section.md](prototypes/agents-md-engineering-memory-section.md) (strip PROTOTYPE comment; ours marker is the heading — no HTML install marker). H3 clusters: **Memory Store** (canonical Store paths including `docs/product.md`; path list order owned with the AGENTS stub), **Loop** (always-on rule title/slug + three duties named, body not pasted; Memory Install + Architecture Review display+slug), **Planning** (ideas, PRDs, and wayfinder/maps are not Store paths until fold-back). No procedure bodies, sync checklists, or conventions prose.
 
 **User-global — always-on rule `engineering-memory`:** three duties only (`~/.cursor/rules/engineering-memory.mdc`, `alwaysApply: true`). Exact body: [prototypes/engineering-memory-always-on-rule.md](prototypes/engineering-memory-always-on-rule.md) (strip PROTOTYPE comment; frontmatter included).
 
@@ -117,6 +121,7 @@ Marker loss on an Install-seeded file → not ours → conflict on the next recr
 |------|------|
 | `AGENTS.md` | Section append/update only; never whole-file replace; diff + confirm |
 | `CONTEXT.md` | Preserve glossary; no term rewrites; optional pointer if no EM linkage |
+| `docs/product.md` | Add missing required template H2s only; never delete prose; confirm |
 | `docs/architecture.md` | Add missing required template H2s only; never delete prose; confirm |
 | `docs/conventions.md` | Add missing seed sections only; preserve existing conventions; confirm |
 | Pointer READMEs | Confirm vs stub; never delete sibling ADRs / deep-dives |
