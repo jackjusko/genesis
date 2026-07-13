@@ -1,6 +1,6 @@
 # Engineering Memory — design
 
-Design/spec for Cursor Engineering Memory. Filled incrementally as [Engineering Memory design](map.md) tickets resolve. **Design complete.** Implementation: [Implement Engineering Memory from the locked design](issues/15-implement-engineering-memory.md) (`ready-for-agent`).
+Sole primary design/spec for Cursor Engineering Memory at this path (charting handoff for implementation). Mandatory sections: Product & packaging, Memory Store, Memory Loop, Memory Install, Architecture Review, Architecture Bias, Open questions / deferred. Stub/rule bodies live under [`prototypes/`](prototypes/) and are linked from the section that owns them; domain vocabulary is [`CONTEXT.md`](../../CONTEXT.md). Filled as [Engineering Memory design](map.md) tickets resolve (matching section updated in the same session). **Design complete.** Implementation: [Implement Engineering Memory from the locked design](issues/15-implement-engineering-memory.md) (`ready-for-agent`).
 
 ## Product & packaging
 

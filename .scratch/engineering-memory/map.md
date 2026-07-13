@@ -28,7 +28,7 @@ A written design/spec for **Cursor Engineering Memory** — Memory Store + Memor
 
 ## Decisions so far
 
-- [What must the Engineering Memory design/spec contain?](issues/01-spec-deliverable-shape.md) — One primary spec at `.scratch/engineering-memory/spec.md` with seven mandatory sections; fill incrementally as tickets resolve; done when sections are implementable and the map is clear.
+- [What must the Engineering Memory design/spec contain?](issues/01-spec-deliverable-shape.md) — Sole handoff: `.scratch/engineering-memory/spec.md` with seven mandatory sections; CONTEXT/prototypes/research/ADRs support; fill same-session as tickets; done when implementable + map clear.
 - [What is the Memory Store scaffold layout?](issues/02-store-scaffold-layout.md) — Closed Store paths: `CONTEXT.md`, `docs/adr/`, `docs/architecture.md`, `docs/architecture/`, `docs/conventions.md`; deep-dives kebab-case when earned only.
 - [What is the primary architecture doc template?](issues/03-architecture-doc-template.md) — Fixed `docs/architecture.md` template: System shape / Key seams / Deep-dives table / Out of scope; opinionated headings + guidance comments; deep-dives indexed when earned only.
 - [Where does Architecture Bias get its defaults?](issues/04-architecture-bias-sources.md) — Seed from `/codebase-design` (paraphrase) + `/tdd` split (habit vs conventions) + thin long-term prefs; stack packs cite-only until earned; never paste skills into conventions.
