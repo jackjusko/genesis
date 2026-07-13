@@ -57,7 +57,7 @@ Stub prose for other Store paths: [CONTEXT.md](prototypes/context-md-stub.md), [
 
 Closed inventory (detail: [issues/07-loop-artifact-inventory.md](issues/07-loop-artifact-inventory.md)): four Install-owned surfaces (AGENTS index + always-on rule + Memory Install + Architecture Review) and Explore invoke-only. Exact stub/rule bodies: tickets 11–12 / prototypes linked below.
 
-**Project — `## Engineering Memory` in AGENTS.md:** index only. Exact Install stub: [prototypes/agents-md-engineering-memory-section.md](prototypes/agents-md-engineering-memory-section.md). Points at Store paths, the always-on rule (three duties named, body not pasted), Memory Install + Architecture Review (display + slug), and that wayfinder/planning maps stay outside the Store. No procedure bodies, sync checklists, or conventions prose.
+**Project — `## Engineering Memory` in AGENTS.md:** index only. Exact Install stub: [prototypes/agents-md-engineering-memory-section.md](prototypes/agents-md-engineering-memory-section.md) (strip PROTOTYPE comment; ours marker is the heading — no HTML install marker). H3 clusters: **Memory Store** (five canonical paths in ticket 02 order), **Loop** (always-on rule title/slug + three duties named, body not pasted; Memory Install + Architecture Review display+slug), **Planning** (wayfinder/maps are not Store paths). No procedure bodies, sync checklists, or conventions prose.
 
 **User-global — always-on rule `engineering-memory`:** three duties only (`~/.cursor/rules/engineering-memory.mdc`). Exact body: [prototypes/engineering-memory-always-on-rule.md](prototypes/engineering-memory-always-on-rule.md).
 
