@@ -40,10 +40,10 @@ A change is **plan-sized** when size or complexity needs a designed architecture
    - **Automatic** — agent recommendations throughout; ask only if blocked.
    - **Critical only** — ask only highest-stakes questions; recommendations elsewhere. **Default if unset.**
    - **Full grill** — HITL grilling on each decision.
-3. Run planning **outside** the Memory Store via Wayfinder (or equivalent). The Store does not own maps or tickets.
-4. When planning decisions resolve: **update the Store** (architecture corpus, glossary, ADRs/conventions when earned), **then** implement.
+3. Run planning **outside** the Memory Store via Wayfinder (or equivalent) — Destination is the architecture decision, not implementation. The Store does not own maps or tickets.
+4. When Destination is met: **Store fold-back** (same targets as Architecture Review — offer ADRs, do not auto-write), **then** implement. Automatic does not skip fold-back.
 
-Exact handoff steps live in the Engineering Memory design spec § Architecture Bias / plan-sized handoff (ticket 13 / Wayfinder). Do not paste planning maps into the Store.
+Exact handoff steps live in the Engineering Memory design spec § Architecture Bias / Plan-sized handoff (ticket 13). Do not paste planning maps into the Store.
 
 ## 3. `/tdd` habit
 

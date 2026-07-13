@@ -19,7 +19,7 @@ A written design/spec for **Cursor Engineering Memory** — Memory Store + Memor
   - Store Sync: session bookends + same-batch update on structural change.
   - Architecture Review triggers: milestone/phase boundaries + friction; manual invoke allowed.
   - Memory Install: full scaffold; hybrid packaging (global Loop, local Store).
-  - Architecture Bias: soft deep-module defaults + agent-authored conventions; prefer expand-over-hacky; ordinary stretch = same-batch Store write; plan-sized = pause, three-mode chooser (Automatic / Critical only default / Full grill), plan outside Store, then Store fold-back + implement.
+  - Architecture Bias: soft deep-module defaults + agent-authored conventions; prefer expand-over-hacky; ordinary stretch = same-batch Store write; plan-sized = pause, three-mode chooser (Automatic / Critical only default / Full grill), Wayfinder Destination=arch decision outside Store, Review-aligned fold-back then implement (Automatic never skips fold-back).
   - `/tdd` is a Memory Loop habit (use when writing/changing code), wired via always-on rule / AGENTS.md — not its own Install skill surface; also a Bias/conventions seed source. Built from existing skills + organic practice, not a parallel test framework.
   - Wayfinder/planning stay separate from the Memory Store.
   - Loop surfaces: project `## Engineering Memory` AGENTS.md index; user-global always-on rule `engineering-memory` (Store Sync + Architecture Bias + TDD habit); user-global skills `memory-install` + Architecture Review (`improve-codebase-architecture`); no optional sync skill; Explore subagent invoke-only for Review.
@@ -40,7 +40,7 @@ A written design/spec for **Cursor Engineering Memory** — Memory Store + Memor
 - [What markers classify an Install path as "ours"?](issues/10-install-ours-markers.md) — Ours = exact `<!-- engineering-memory:install -->` in first 20 lines (trim/BOM) or AGENTS line `## Engineering Memory`; dirs by existence; no fingerprints; marker loss → conflict.
 - [What stub does Memory Install drop for the AGENTS.md Engineering Memory section?](issues/11-agents-md-section-stub.md) — Index-only stub: Store paths (02 order) + Loop rule/skills + Planning non-ownership; heading is ours marker; see prototypes/agents-md-engineering-memory-section.md.
 - [What is the exact body of the engineering-memory always-on rule?](issues/12-always-on-rule-body.md) — Locked `.mdc` body: Sync via AGENTS index; Bias (ordinary vs plan-sized + three modes, handoff deferred to 13); `/tdd` habit; see prototypes/engineering-memory-always-on-rule.md.
-- [How does the plan-sized Architecture Bias gate hand off to planning?](issues/13-plan-sized-architecture-handoff.md) — Stop → mode chooser → Wayfinder outside Store → fold-back then implement; Critical only default; maps never in Store.
+- [How does the plan-sized Architecture Bias gate hand off to planning?](issues/13-plan-sized-architecture-handoff.md) — Stop → three-mode chooser (Critical only default) → Wayfinder Destination=arch decision outside Store → Review-aligned fold-back (offer ADR) then implement; Automatic never skips fold-back; resume=map path.
 - [What stub prose remains for other Memory Install Store drops?](issues/14-remaining-install-stubs.md) — CONTEXT / adr README / architecture dir README stubs locked with Install markers; see prototypes/.
 
 ## Not yet specified
