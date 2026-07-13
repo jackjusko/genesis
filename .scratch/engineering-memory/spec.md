@@ -136,9 +136,9 @@ Detail: [issues/13-plan-sized-architecture-handoff.md](issues/13-plan-sized-arch
 
 | Source | Into conventions stub | Stays as skill/habit |
 |--------|----------------------|----------------------|
-| `/codebase-design` | Deep-module soft defaults + vocabulary | Deepening / design-it-twice workflows |
-| `/tdd` | Behaviour-through-interfaces; test at seams; inject deps | Red→green loop; seam confirmation; anti-pattern detail |
-| Long-term bias (thin) | Evolvable seams; honest failure signals; prefer depth | — |
+| `/codebase-design` | Deep-module soft defaults + vocabulary; Designing for testability (inject deps; return results; interface = test surface) | Deepening / design-it-twice workflows |
+| `/tdd` | Behaviour-through-interfaces; test at seams; survive refactors | Red→green loop; seam confirmation; anti-pattern detail |
+| Long-term bias (thin) | Evolvable seams; honest failure signals; prefer depth | Full `/observability` procedure (cite on demand) |
 | Stack packs (`/api-design`, `/observability`, `/react-best-practices`, …) | Not in generic Install | Cite on demand; paraphrase into project conventions when stack matches |
 
 **Cite vs paraphrase:** conventions = standing preferences (always-on / skim); skills = procedures and catalogs. Never paste a whole skill into the Store.
