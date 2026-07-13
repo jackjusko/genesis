@@ -79,8 +79,8 @@ Same session, before ending. Durable outcomes land in the Memory Store — **no 
 | Outcome | Store target |
 |--------|----------------|
 | Seams / module shape / earned deep-dive | `docs/architecture.md` and/or `docs/architecture/<kebab>.md` |
-| Domain terms | `CONTEXT.md` |
-| Hard override / don’t re-suggest | Offer ADR under `docs/adr/` |
+| Domain terms | `CONTEXT.md` (via `/domain-modeling`) |
+| Hard override / don’t re-suggest | **Offer** ADR under `docs/adr/` (do not auto-write) |
 | Earned standing preference | `docs/conventions.md` **Project-specific** |
 
 Keep the HTML report temp-only; never commit it to the repo or Store.

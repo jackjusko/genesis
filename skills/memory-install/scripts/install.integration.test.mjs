@@ -57,6 +57,29 @@ describe("runMemoryInstall integration", () => {
     const agents = fs.readFileSync(path.join(projectRoot, "AGENTS.md"), "utf8");
     assert.ok(agents.includes("## Engineering Memory"));
     assert.ok(agents.includes("## Agent skills"));
+    const storeBlock = agents.slice(
+      agents.indexOf("### Memory Store"),
+      agents.indexOf("### Loop"),
+    );
+    const storeOrder = [
+      "CONTEXT.md",
+      "docs/adr/",
+      "docs/architecture.md",
+      "docs/architecture/",
+      "docs/conventions.md",
+    ];
+    let last = -1;
+    for (const p of storeOrder) {
+      const idx = storeBlock.indexOf(p);
+      assert.ok(idx > last, `installed AGENTS Store order: ${p}`);
+      last = idx;
+    }
+    const rule = fs.readFileSync(
+      path.join(globalRoot, "rules", "engineering-memory.mdc"),
+      "utf8",
+    );
+    assert.match(rule, /via the project `## Engineering Memory` AGENTS\.md index/);
+    assert.doesNotMatch(rule, /#### Plan-sized handoff \(exact\)/);
     assert.ok(
       fs.existsSync(path.join(globalRoot, "rules", "engineering-memory.mdc")),
     );
