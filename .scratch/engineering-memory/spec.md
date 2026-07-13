@@ -4,16 +4,16 @@ Sole primary design/spec for Cursor Engineering Memory at this path (charting ha
 
 ## Product & packaging
 
-**Cursor-first** Engineering Memory. **Hybrid packaging:** reusable Loop artifacts ship **user-global**; Memory Store + `## Engineering Memory` in AGENTS.md live **project-local**.
+**Cursor-first** Engineering Memory. **Hybrid packaging:** reusable Loop artifacts ship **user-global**; Memory Store + `## Engineering Memory` in AGENTS.md live **project-local**. Closed inventory: [issues/07-loop-artifact-inventory.md](issues/07-loop-artifact-inventory.md).
 
-| Loop artifact | Slug / heading | Where |
-|---------------|----------------|-------|
-| AGENTS.md section | `## Engineering Memory` | Project |
-| Always-on rule | `engineering-memory` (title **Engineering Memory**) | User-global |
-| Memory Install skill | `memory-install` | User-global |
-| Architecture Review skill | `improve-codebase-architecture` (display **Architecture Review**; slug locked) | User-global |
+| Loop artifact | Display / heading | Slug | Where | Canonical Cursor destination |
+|---------------|-------------------|------|-------|------------------------------|
+| AGENTS.md section | `## Engineering Memory` | heading (ours marker) | Project | `<repo>/AGENTS.md` section only |
+| Always-on rule | **Engineering Memory** | `engineering-memory` | User-global | `~/.cursor/rules/engineering-memory.mdc` (`alwaysApply: true`) |
+| Memory Install skill | **Memory Install** | `memory-install` | User-global | `~/.agents/skills/memory-install/` |
+| Architecture Review skill | **Architecture Review** | `improve-codebase-architecture` (locked) | User-global | `~/.agents/skills/improve-codebase-architecture/` |
 
-No optional sync skill. Explore subagent is invoke-only (Architecture Review), not an Install drop. Implementation/shipping of the package is out of scope for this design.
+No optional sync skill. No project copies of the rule or Loop skills. Explore subagent is invoke-only (Architecture Review), not an Install drop. `/grilling`, `/domain-modeling`, `/codebase-design`, and `/tdd` stay existing on-demand skills — not Engineering Memory Install drops. Implementation/shipping of the package is out of scope for this design.
 
 **Global Loop updates:** Memory Install is the sole updater. Every invoke (1) **always replaces** user-global rule + skills with packaged latest (package-owned; no global merge), then (2) runs project preflight/merge. No separate upgrade skill, no globals-only flag. **Project Store never auto-upgrades** when stubs advance — ours/skip, missing/create, conflict/offer interactive merge. Version pins and release changelogs deferred.
 
@@ -55,17 +55,17 @@ Stub prose for other Store paths: [CONTEXT.md](prototypes/context-md-stub.md), [
 
 ## Memory Loop
 
-Closed inventory (detail: [issues/07-loop-artifact-inventory.md](issues/07-loop-artifact-inventory.md)):
+Closed inventory (detail: [issues/07-loop-artifact-inventory.md](issues/07-loop-artifact-inventory.md)): four Install-owned surfaces (AGENTS index + always-on rule + Memory Install + Architecture Review) and Explore invoke-only. Exact stub/rule bodies: tickets 11–12 / prototypes linked below.
 
-**Project — `## Engineering Memory` in AGENTS.md:** index only. Exact Install stub: [prototypes/agents-md-engineering-memory-section.md](prototypes/agents-md-engineering-memory-section.md). Points at Store paths, the always-on rule (by name, not pasted), Memory Install + Architecture Review skills, and that wayfinder/planning maps stay outside the Store.
+**Project — `## Engineering Memory` in AGENTS.md:** index only. Exact Install stub: [prototypes/agents-md-engineering-memory-section.md](prototypes/agents-md-engineering-memory-section.md). Points at Store paths, the always-on rule (three duties named, body not pasted), Memory Install + Architecture Review (display + slug), and that wayfinder/planning maps stay outside the Store. No procedure bodies, sync checklists, or conventions prose.
 
-**User-global — always-on rule `engineering-memory`:** three duties only. Exact body: [prototypes/engineering-memory-always-on-rule.md](prototypes/engineering-memory-always-on-rule.md).
+**User-global — always-on rule `engineering-memory`:** three duties only (`~/.cursor/rules/engineering-memory.mdc`). Exact body: [prototypes/engineering-memory-always-on-rule.md](prototypes/engineering-memory-always-on-rule.md).
 
-1. **Store Sync** — load relevant Store at session start; write back material changes before session end; same-batch update on structural change.
+1. **Store Sync** — load relevant Store at session start (via AGENTS index); write back material changes before session end; same-batch update on structural change. No optional sync skill.
 2. **Architecture Bias** — soft deep-module defaults; prefer expanding architecture over hacky/short-term fit (extension must fit existing corpus + bias). **Ordinary stretch:** design → implement → Store write same batch. **Plan-sized:** stop; offer **Automatic** / **Critical only** (default if unset) / **Full grill**; plan outside Store; on resolve, Store update then implement. Never-installed Store → note gap, degrade. Plan-sized handoff: [issues/13-plan-sized-architecture-handoff.md](issues/13-plan-sized-architecture-handoff.md).
 3. **`/tdd` habit** — use `/tdd` when writing/changing code (not a separate Install skill).
 
-**User-global — `memory-install`:** sole updater of globals — every invoke replaces global Loop artifacts with packaged latest, then full-scaffold / merge-preflight the project Store + AGENTS.md section (per Memory Install; Store never auto-upgraded from newer stubs).
+**User-global — `memory-install`:** sole updater of the global Loop set — every invoke replaces rule + both skills with packaged latest, then full-scaffold / merge-preflight the project Store + AGENTS.md section (per Memory Install; Store never auto-upgraded from newer stubs). Not Review, not living architecture beyond stubs, not hooks/CI.
 
 **User-global — Architecture Review** (slug locked `improve-codebase-architecture`): deepening pass with Explore invoke-only; Store fold-back when decisions crystallize (see Architecture Review).
 
