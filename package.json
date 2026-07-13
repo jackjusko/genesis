@@ -1,0 +1,14 @@
+{
+  "name": "engineering-memory",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Cursor Engineering Memory — Memory Store + Memory Loop package",
+  "scripts": {
+    "test": "node --test skills/memory-install/scripts/*.test.mjs skills/memory-install/scripts/*.integration.test.mjs",
+    "memory-install": "node skills/memory-install/scripts/memory-install.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
