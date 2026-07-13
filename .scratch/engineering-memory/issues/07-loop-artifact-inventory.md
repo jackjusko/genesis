@@ -7,11 +7,11 @@ Blocked by: 02, 06
 
 ## Question
 
-What are the exact names, locations (user-global vs project), and duties of the AGENTS.md section, always-on rule (Store Sync + Architecture Bias + `/tdd` habit), Memory Install skill, Architecture Review skill, optional sync skill, and any subagents ? matching the agreed Cursor surface split?
+What are the exact names, locations (user-global vs project), and duties of the AGENTS.md section, always-on rule (Store Sync + Architecture Bias + `/tdd` habit), Memory Install skill, Architecture Review skill, optional sync skill, and any subagents -- matching the agreed Cursor surface split?
 
 Note from map: `/tdd` is a habit wired through the always-on rule / AGENTS.md index, not a third Install skill.
 
-## Prior answer (earlier pass ? re-resolve; do not rubber-stamp)
+## Prior answer (earlier pass -- re-resolve; do not rubber-stamp)
 ### Closed set
 
 | Artifact | Name / slug | Location | Duties |
@@ -36,7 +36,7 @@ Exact AGENTS.md stub prose, always-on rule body text, and plan-sized ? Wayfinder
 
 ## Answer
 
-Re-resolved against closed Store (ticket 02), Architecture Review packaging (ticket 06), hybrid packaging (map / CONTEXT), and Cursor surface split. Compared: one always-on rule vs split rules; optional sync skill vs always-on Sync only; Install ?ensure present? vs sole-updater; project-local rule/skills vs user-global Loop; Explore as Install drop vs invoke-only.
+Re-resolved against closed Store (ticket 02), Architecture Review packaging (ticket 06), hybrid packaging (map / CONTEXT), and Cursor surface split. Compared: one always-on rule vs split rules; optional sync skill vs always-on Sync only; Install "ensure present" vs sole-updater; project-local rule/skills vs user-global Loop; Explore as Install drop vs invoke-only.
 
 ### Closed Loop set
 
@@ -55,26 +55,26 @@ Hybrid packaging: reusable Loop rule + skills ship **user-global**; Memory Store
 ### Duties
 
 **`## Engineering Memory` (project index only)**  
-Pointers, not procedures: canonical Store paths to load; name the always-on rule (three duties listed, body not pasted); name Memory Install + Architecture Review (display + slug); state that wayfinder/planning maps stay outside the Store. No sync checklists, conventions prose, or skill bodies. Exact stub ? ticket 11.
+Pointers, not procedures: canonical Store paths to load; name the always-on rule (three duties listed, body not pasted); name Memory Install + Architecture Review (display + slug); state that wayfinder/planning maps stay outside the Store. No sync checklists, conventions prose, or skill bodies. Exact stub -> ticket 11.
 
 **Always-on rule `engineering-memory` (three duties only)**
 
-1. **Store Sync** ? load relevant Store at session start (via AGENTS index); same-batch Store write on structural change; write back other material changes before session end. No optional sync skill.
-2. **Architecture Bias** ? soft deep-module / clear-seam defaults + agent-authored `docs/conventions.md`; long-term over short-term minimalism; ADRs win on hard overrides. Prefer expanding architecture over hacky fit (extension must fit existing corpus + bias):
-   - **Ordinary stretch:** design ? implement ? Store write same batch.
-   - **Plan-sized:** stop; offer **Automatic** / **Critical only** (default if unset) / **Full grill**; plan outside Store (Wayfinder or equivalent); on resolve, Store update then implement. Never-installed Store ? note gap, degrade (don?t invent a corpus).
-3. **`/tdd` habit** ? when writing or changing code, use `/tdd`. Not a separate Install skill.
+1. **Store Sync** -- load relevant Store at session start (via AGENTS index); same-batch Store write on structural change; write back other material changes before session end. No optional sync skill.
+2. **Architecture Bias** -- soft deep-module / clear-seam defaults + agent-authored `docs/conventions.md`; long-term over short-term minimalism; ADRs win on hard overrides. Prefer expanding architecture over hacky fit (extension must fit existing corpus + bias):
+   - **Ordinary stretch:** design -> implement -> Store write same batch.
+   - **Plan-sized:** stop; offer **Automatic** / **Critical only** (default if unset) / **Full grill**; plan outside Store (Wayfinder or equivalent); on resolve, Store update then implement. Never-installed Store -> note gap, degrade (do not invent a corpus).
+3. **`/tdd` habit** -- when writing or changing code, use `/tdd`. Not a separate Install skill.
 
-Exact rule body ? ticket 12. Plan-sized ? Wayfinder mechanics ? ticket 13.
+Exact rule body -> ticket 12. Plan-sized -> Wayfinder mechanics -> ticket 13.
 
 **Memory Install (`memory-install`)**  
-Sole updater of the user-global Loop set (rule + both skills). Every invoke refreshes those globals from the packaged latest, then full-scaffolds / merge-preflights the project Store + `## Engineering Memory` section. Not Architecture Review, not living architecture beyond Install stubs, not hooks/CI. Refresh/merge detail ? tickets 05 / 08.
+Sole updater of the user-global Loop set (rule + both skills). Every invoke refreshes those globals from the packaged latest, then full-scaffolds / merge-preflights the project Store + `## Engineering Memory` section. Not Architecture Review, not living architecture beyond Install stubs, not hooks/CI. Refresh/merge detail -> tickets 05 / 08.
 
 **Architecture Review (`improve-codebase-architecture`)**  
-Deepening pass per ticket 06: load Store ? Explore walk ? temp HTML ? grill ? Store fold-back when decisions crystallize. Triggers: milestone/phase + friction; manual invoke allowed. Evolve in place; display name Architecture Review; slug locked.
+Deepening pass per ticket 06: load Store -> Explore walk -> temp HTML -> grill -> Store fold-back when decisions crystallize. Triggers: milestone/phase + friction; manual invoke allowed. Evolve in place; display name Architecture Review; slug locked.
 
 **Explore**  
-Invoke-only isolation for Review?s organic walk. Parent owns Store load, HTML, grill, fold-back. Not an Install drop.
+Invoke-only isolation for Review's organic walk. Parent owns Store load, HTML, grill, fold-back. Not an Install drop.
 
 ### Out of inventory (explicit)
 
@@ -91,11 +91,11 @@ Invoke-only isolation for Review?s organic walk. Parent owns Store load, HTML, g
 
 ### Rejected alternatives
 
-1. **Optional sync skill** ? duplicates always-on Sync; agents would skip the rule and ?remember to sync later.?
-2. **`/tdd` as third Install skill** ? map already wires it as habit; a third skill bloated the closed set without a distinct Install job.
-3. **Split always-on rules** (Sync vs Bias vs TDD) ? three always-on surfaces compete for attention; one rule keeps the Loop cheap to load.
-4. **Project-local Loop rule/skills** ? breaks ?one global Loop, many project Stores?; upgrades would fork per repo.
-5. **Install only ?ensures present?** (no refresh duty) ? leaves globals stale; sole-updater + refresh is the inventory duty (replace-always mechanics locked in ticket 08).
-6. **Explore as Install drop** ? Cursor-provided invoke target; shipping a fake Explore skill confuses discovery.
+1. **Optional sync skill** -- duplicates always-on Sync; agents would skip the rule and "remember to sync later."
+2. **`/tdd` as third Install skill** -- map already wires it as habit; a third skill bloated the closed set without a distinct Install job.
+3. **Split always-on rules** (Sync vs Bias vs TDD) -- three always-on surfaces compete for attention; one rule keeps the Loop cheap to load.
+4. **Project-local Loop rule/skills** -- breaks "one global Loop, many project Stores"; upgrades would fork per repo.
+5. **Install only "ensures present"** (no refresh duty) -- leaves globals stale; sole-updater + refresh is the inventory duty (replace-always mechanics locked in ticket 08).
+6. **Explore as Install drop** -- Cursor-provided invoke target; shipping a fake Explore skill confuses discovery.
 
-Detail: [spec.md § Product & packaging](../spec.md) / [§ Memory Loop](../spec.md).
+Detail: [spec.md Product & packaging](../spec.md) / [Memory Loop](../spec.md).
