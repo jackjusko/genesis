@@ -9,8 +9,12 @@ The product as a whole: durable project knowledge plus the agent habits that kee
 _Avoid_: memory (alone), vibe memory, agent brain
 
 **Memory Store**:
-The living document set in a target repo that agents must read and keep current. It **extends** the existing domain-docs kit (`CONTEXT.md` + `docs/adr/`) with an architecture corpus and any other docs the Loop requires — not a parallel brain beside them. It does **not** own planning/wayfinding maps; those stay separate decision-route artifacts, and durable outcomes land in the Store after decisions resolve.
+The living document set in a target repo that agents must read and keep current. It **extends** the existing domain-docs kit (`CONTEXT.md` + `docs/adr/`) with an architecture corpus, **Product Intent** (`docs/product.md`), and any other docs the Loop requires — not a parallel brain beside them. It owns durable product identity, vision, goals, and non-goals once crystallized. It does **not** own planning/wayfinding maps, idea dumps, or PRD drafts; those stay separate decision-route artifacts, and durable outcomes land in the Store after decisions resolve.
 _Avoid_: knowledge base, wiki, context dump
+
+**Product Intent**:
+The Memory Store doc at `docs/product.md` for durable project identity, vision, goals, and non-goals. Scaffolded on Memory Install; kept current via Store Sync and fold-back when those crystallize. Raw ideas, PRD drafts, and wayfinder maps stay outside the Store (planning layer) until fold-back. Vision does **not** live in the domain glossary (`CONTEXT.md`). Agents must not invent goals the user never stated. v1 has no dedicated Product Intent skill — capture is Store Sync + fold-back only.
+_Avoid_: product vision (alone when meaning the Store doc), roadmap, PRD (as Store content)
 
 **Architecture Corpus**:
 The Memory Store documents that describe the system’s structure and module seams. Default load is one primary architecture doc (scaffolded on Memory Install); linked deep-dives are filled liberally when a subsystem has earned its own home — scaffold may include an empty deep-dive folder, not a wall of pre-written subsystem docs.

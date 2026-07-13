@@ -24,6 +24,7 @@ No optional sync skill. No project copies of the rule or Loop skills. Explore su
 | Path | Role |
 |------|------|
 | `CONTEXT.md` | Domain glossary (repo root) |
+| `docs/product.md` | Product Intent (identity / vision / goals / non-goals) |
 | `docs/adr/` | ADRs |
 | `docs/architecture.md` | Primary Architecture Corpus doc |
 | `docs/architecture/` | Deep-dives (earned only) |
@@ -34,12 +35,17 @@ No optional sync skill. No project copies of the rule or Loop skills. Explore su
 | File | Rule |
 |------|------|
 | `CONTEXT.md` | Stub only if missing |
+| `docs/product.md` | Product Intent stub |
 | `docs/adr/README.md` | Ensure `docs/adr/`; README when folder new / README missing; no sample ADRs |
 | `docs/architecture.md` | Primary architecture doc |
 | `docs/architecture/README.md` | Ensure `docs/architecture/`; pointer README only; no pre-seeded deep-dives |
 | `docs/conventions.md` | Conventions stub |
 
-Deep-dives are added later as kebab-case files under `docs/architecture/` when a subsystem has earned its own home — never pre-seeded. No default `CONTEXT-MAP.md`. Nothing else is Memory Store: no parallel `memory/` tree; `AGENTS.md` `## Engineering Memory` is Loop index (not Store); planning/wayfinder maps stay outside the Store.
+Deep-dives are added later as kebab-case files under `docs/architecture/` when a subsystem has earned its own home — never pre-seeded. No default `CONTEXT-MAP.md`. Nothing else is Memory Store: no parallel `memory/` tree; `AGENTS.md` `## Engineering Memory` is Loop index (not Store); ideas, PRD drafts, and planning/wayfinder maps stay outside the Store until fold-back crystallizes durable outcomes into Store docs.
+
+### Product Intent (`docs/product.md`)
+
+Durable project identity, vision, goals, and non-goals. Install scaffolds the stub (exact H2 contract + prototype body: [Product Intent in Memory Ops](../product-intent/map.md) ticket 02). Ideas, PRD drafts, and wayfinder maps remain planning-layer (e.g. `.scratch/`) until fold-back. Vision does **not** live in `CONTEXT.md`. Agents must not invent goals the user never stated. v1 capture is Store Sync + fold-back only — no dedicated Product Intent skill.
 
 ### Primary architecture doc (`docs/architecture.md`)
 
@@ -67,7 +73,7 @@ Brownfield merge: see Memory Install.
 
 Closed inventory (detail: [issues/07-loop-artifact-inventory.md](issues/07-loop-artifact-inventory.md)): four Install-owned surfaces (AGENTS index + always-on rule + Memory Install + Architecture Review) and Explore invoke-only. Exact stub/rule bodies: tickets 11–12 / prototypes linked below.
 
-**Project — `## Engineering Memory` in AGENTS.md:** index only. Exact Install stub: [prototypes/agents-md-engineering-memory-section.md](prototypes/agents-md-engineering-memory-section.md) (strip PROTOTYPE comment; ours marker is the heading — no HTML install marker). H3 clusters: **Memory Store** (five canonical paths in ticket 02 order), **Loop** (always-on rule title/slug + three duties named, body not pasted; Memory Install + Architecture Review display+slug), **Planning** (wayfinder/maps are not Store paths). No procedure bodies, sync checklists, or conventions prose.
+**Project — `## Engineering Memory` in AGENTS.md:** index only. Exact Install stub: [prototypes/agents-md-engineering-memory-section.md](prototypes/agents-md-engineering-memory-section.md) (strip PROTOTYPE comment; ours marker is the heading — no HTML install marker). H3 clusters: **Memory Store** (canonical Store paths — include `docs/product.md` when Install scaffolds it; path list order owned with the AGENTS stub), **Loop** (always-on rule title/slug + three duties named, body not pasted; Memory Install + Architecture Review display+slug), **Planning** (ideas, PRDs, and wayfinder/maps are not Store paths until fold-back). No procedure bodies, sync checklists, or conventions prose.
 
 **User-global — always-on rule `engineering-memory`:** three duties only (`~/.cursor/rules/engineering-memory.mdc`, `alwaysApply: true`). Exact body: [prototypes/engineering-memory-always-on-rule.md](prototypes/engineering-memory-always-on-rule.md) (strip PROTOTYPE comment; frontmatter included).
 
@@ -95,7 +101,7 @@ Brownfield-safe full scaffold of the project-local Store + `AGENTS.md` Engineeri
 
 | Target | Ours iff |
 |--------|----------|
-| `CONTEXT.md`, `docs/architecture.md`, `docs/conventions.md`, `docs/adr/README.md`, `docs/architecture/README.md` | After optional UTF-8 BOM strip, within the first **20 physical lines**, a line trims to exactly `<!-- engineering-memory:install -->` (case-sensitive; no other text on the line; no version suffix in v1) |
+| `CONTEXT.md`, `docs/product.md`, `docs/architecture.md`, `docs/conventions.md`, `docs/adr/README.md`, `docs/architecture/README.md` | After optional UTF-8 BOM strip, within the first **20 physical lines**, a line trims to exactly `<!-- engineering-memory:install -->` (case-sensitive; no other text on the line; no version suffix in v1) |
 | `AGENTS.md` § Engineering Memory | A physical line trims to exactly `## Engineering Memory` (case-sensitive ATX `##`) — heading present → skip section rewrite even if body diverged; heading absent → missing |
 | `docs/adr/`, `docs/architecture/` | Directory exists (any contents) |
 
