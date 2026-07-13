@@ -11,7 +11,7 @@ disable-model-invocation: true
 
 Surface architectural friction and propose **deepening opportunities** — refactors that turn shallow modules into deep ones. The aim is testability and AI-navigability.
 
-This is Engineering Memory’s **Architecture Review** surface (skill slug remains `improve-codebase-architecture`). It is _informed_ by the project’s Memory Store and built on a shared design vocabulary:
+This is Engineering Memory’s **Architecture Review** surface (skill slug locked to `improve-codebase-architecture`). It is _informed_ by the project’s Memory Store and built on a shared design vocabulary:
 
 - Run the `/codebase-design` skill for the architecture vocabulary (**module**, **interface**, **depth**, **seam**, **adapter**, **leverage**, **locality**) and its principles (the deletion test, "the interface is the test surface", "one adapter = hypothetical seam, two = real"). Use these terms exactly in every suggestion — don't drift into "component," "service," "API," or "boundary."
 - Load the Memory Store first when present: `CONTEXT.md`, `docs/architecture.md` (+ linked deep-dives), `docs/conventions.md`, and ADRs in `docs/adr/` for the area you’re touching. Use the project `## Engineering Memory` AGENTS.md index for paths. If Store pieces are missing, **note the gaps and degrade** — do not invent architecture.

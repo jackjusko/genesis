@@ -11,7 +11,7 @@ Sole primary design/spec for Cursor Engineering Memory at this path (charting ha
 | AGENTS.md section | `## Engineering Memory` | Project |
 | Always-on rule | `engineering-memory` (title **Engineering Memory**) | User-global |
 | Memory Install skill | `memory-install` | User-global |
-| Architecture Review skill | `improve-codebase-architecture` (display **Architecture Review**) | User-global |
+| Architecture Review skill | `improve-codebase-architecture` (display **Architecture Review**; slug locked) | User-global |
 
 No optional sync skill. Explore subagent is invoke-only (Architecture Review), not an Install drop. Implementation/shipping of the package is out of scope for this design.
 
@@ -67,7 +67,7 @@ Closed inventory (detail: [issues/07-loop-artifact-inventory.md](issues/07-loop-
 
 **User-global — `memory-install`:** sole updater of globals — every invoke replaces global Loop artifacts with packaged latest, then full-scaffold / merge-preflight the project Store + AGENTS.md section (per Memory Install; Store never auto-upgraded from newer stubs).
 
-**User-global — Architecture Review** (`improve-codebase-architecture`): deepening pass with Explore invoke-only; Store fold-back when decisions crystallize (see Architecture Review).
+**User-global — Architecture Review** (slug locked `improve-codebase-architecture`): deepening pass with Explore invoke-only; Store fold-back when decisions crystallize (see Architecture Review).
 
 ## Memory Install
 
@@ -102,21 +102,21 @@ Exact **ours** recognition (file markers, AGENTS heading) is [issues/10-install-
 
 ## Architecture Review
 
-Packaged by **evolving** `/improve-codebase-architecture` **in place** (no wrapper fork). Loop surface name: **Architecture Review**; skill slug may remain `improve-codebase-architecture` if discovery requires it. Deepening vocabulary unchanged (`/codebase-design`).
+Packaged by **evolving** `/improve-codebase-architecture` **in place** (no wrapper fork, no parallel skill). Loop display name: **Architecture Review**. Skill slug **locked** to `improve-codebase-architecture` (folder + frontmatter `name`). Description must say Architecture Review and Store fold-back. Deepening vocabulary unchanged (`/codebase-design`). Ships user-global; Install replaces with packaged latest. Detail: [issues/06-architecture-review-packaging.md](issues/06-architecture-review-packaging.md).
 
-**Process (preserved):** load Store/domain docs → Explore subagent codebase walk → temp HTML candidate report → user picks → grilling → domain-modeling side effects → **Store fold-back**.
+**Process (parent-owned):** load Store → Explore subagent walk (invoke-only) → temp HTML candidate report → user picks → `/grilling` (+ `/domain-modeling` side effects; optional `/codebase-design` design-it-twice) → **Store fold-back** when decisions crystallize → implement under Store Sync + `/tdd` if code follows.
 
-**HTML report:** Temp-only (`architecture-review-<timestamp>.html` under OS temp). Never committed to the repo or Memory Store.
+**HTML report:** Temp-only (`architecture-review-<timestamp>.html` under OS temp). Never committed to the repo, Memory Store, or a `reports/` tree. Durable outcomes are Store writes.
 
-**Explore subagent:** Kept for the organic walk. Parent owns Store load, report, grill, fold-back. Missing Store pieces → note gaps; don’t invent architecture.
+**Explore subagent:** Kept for the organic walk only. Parent owns Store load, report, grill, fold-back. Missing Store pieces → note gaps; don’t invent architecture. Not an Install drop.
 
 **Fold-back (mandatory when decisions crystallize, same session):**
 
 | Outcome | Store target |
 |--------|----------------|
 | Seams / module shape / earned deep-dive | `docs/architecture.md` and/or `docs/architecture/<kebab>.md` |
-| Domain terms | `CONTEXT.md` |
-| Hard override / don’t re-suggest | Offer ADR |
+| Domain terms | `CONTEXT.md` (via `/domain-modeling`) |
+| Hard override / don’t re-suggest | **Offer** ADR under `docs/adr/` (do not auto-write) |
 | Earned standing preference | `docs/conventions.md` Project-specific |
 
 No parallel review log. Browse-only session (no candidate chosen) → no Store write.

@@ -33,5 +33,5 @@ The one-shot skill that lays down Engineering Memory in a target repo, and the *
 _Avoid_: bootstrap (alone), setup script, memory-upgrade (as a separate skill)
 
 **Architecture Review**:
-A deepening pass: the `/improve-codebase-architecture` skill evolved in place (not a fork), surfaced under this name. Same explore → temp HTML → grill process; when decisions crystallize, findings fold back into the Memory Store (Architecture Corpus, glossary, ADRs when earned, conventions when earned) — no parallel review log. Default triggers: milestone/phase boundaries, and friction (repeated Store Sync thrash, hard-to-test seams, agent can’t locate a seam). Manual invoke remains available; not a fixed every-N-sessions ritual.
+A deepening pass: the `/improve-codebase-architecture` skill evolved in place (not a fork; slug locked), surfaced under this name. Same explore → temp HTML → grill process; when decisions crystallize, findings fold back into the Memory Store (Architecture Corpus, glossary, ADRs when earned, conventions when earned) — no parallel review log. Default triggers: milestone/phase boundaries, and friction (repeated Store Sync thrash, hard-to-test seams, agent can’t locate a seam). Manual invoke remains available; not a fixed every-N-sessions ritual.
 _Avoid_: refactor sweep, cleanup pass
