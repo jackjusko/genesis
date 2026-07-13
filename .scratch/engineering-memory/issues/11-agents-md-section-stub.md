@@ -1,7 +1,7 @@
 # What stub does Memory Install drop for the AGENTS.md Engineering Memory section?
 
 Type: prototype  
-Status: claimed  
+Status: resolved  
 Parent: [Engineering Memory design](../map.md)  
 Blocked by: 07
 

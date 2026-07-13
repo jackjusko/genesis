@@ -1,7 +1,7 @@
 # What stub prose does Memory Install drop into conventions.md?
 
 Type: prototype  
-Status: claimed  
+Status: resolved  
 Parent: [Engineering Memory design](../map.md)  
 Blocked by: 04
 

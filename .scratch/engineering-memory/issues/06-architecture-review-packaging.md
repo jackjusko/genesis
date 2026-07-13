@@ -1,7 +1,7 @@
 # How is Architecture Review packaged?
 
 Type: grilling  
-Status: claimed  
+Status: resolved  
 Parent: [Engineering Memory design](../map.md)
 
 ## Question

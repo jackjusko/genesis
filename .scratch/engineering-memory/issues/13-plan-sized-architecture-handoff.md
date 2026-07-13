@@ -1,7 +1,7 @@
 # How does the plan-sized Architecture Bias gate hand off to planning?
 
 Type: grilling  
-Status: claimed  
+Status: resolved  
 Parent: [Engineering Memory design](../map.md)  
 Blocked by: 07
 

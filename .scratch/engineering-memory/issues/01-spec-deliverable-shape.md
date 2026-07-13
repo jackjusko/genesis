@@ -1,7 +1,7 @@
 # What must the Engineering Memory design/spec contain?
 
 Type: grilling  
-Status: claimed  
+Status: resolved  
 Parent: [Engineering Memory design](../map.md)
 
 ## Question

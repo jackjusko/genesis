@@ -1,9 +1,12 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { planGlobalRefresh } from "./lib/refresh-globals.mjs";
+import {
+  DEPENDENCY_SKILLS,
+  planGlobalRefresh,
+} from "./lib/refresh-globals.mjs";
 
 describe("planGlobalRefresh", () => {
-  it("always overwrites rule + Architecture Review + self skill from package", () => {
+  it("always overwrites rule + Loop skills + core-four deps from package", () => {
     const plan = planGlobalRefresh({
       packageRoot: "/pkg",
       agentsSkillsDir: "/home/.agents/skills",
@@ -24,8 +27,24 @@ describe("planGlobalRefresh", () => {
           "/pkg/skills/memory-install",
           "/home/.agents/skills/memory-install",
         ],
+        ["/pkg/skills/tdd", "/home/.agents/skills/tdd"],
+        [
+          "/pkg/skills/codebase-design",
+          "/home/.agents/skills/codebase-design",
+        ],
+        [
+          "/pkg/skills/domain-modeling",
+          "/home/.agents/skills/domain-modeling",
+        ],
+        ["/pkg/skills/grilling", "/home/.agents/skills/grilling"],
       ],
     );
+    assert.deepEqual(DEPENDENCY_SKILLS, [
+      "tdd",
+      "codebase-design",
+      "domain-modeling",
+      "grilling",
+    ]);
   });
 
   it("mirrors full package when packageMirrorDir is set", () => {

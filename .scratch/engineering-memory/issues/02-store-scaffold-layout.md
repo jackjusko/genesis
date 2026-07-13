@@ -1,7 +1,7 @@
 # What is the Memory Store scaffold layout?
 
 Type: grilling  
-Status: claimed  
+Status: resolved  
 Parent: [Engineering Memory design](../map.md)
 
 ## Question

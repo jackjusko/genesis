@@ -1,7 +1,15 @@
 import path from "node:path";
 
+/** Package-owned dependency skills — always overwrite on Install. */
+export const DEPENDENCY_SKILLS = [
+  "tdd",
+  "codebase-design",
+  "domain-modeling",
+  "grilling",
+];
+
 /**
- * Package-owned global Loop refresh plan. Always overwrite destinations.
+ * Package-owned global Loop + dependency refresh plan. Always overwrite destinations.
  *
  * @param {{
  *   packageRoot: string,
@@ -33,6 +41,14 @@ export function planGlobalRefresh({
       to: path.join(agentsSkillsDir, "memory-install"),
     },
   ];
+
+  for (const slug of DEPENDENCY_SKILLS) {
+    plan.push({
+      kind: "dir",
+      from: path.join(packageRoot, "skills", slug),
+      to: path.join(agentsSkillsDir, slug),
+    });
+  }
 
   if (packageMirrorDir) {
     plan.push({

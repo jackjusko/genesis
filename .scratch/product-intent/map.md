@@ -15,9 +15,9 @@ Engineering Memory’s Memory Store and Loop also keep durable **project identit
 
 ## Decisions so far
 
-- [Lock Product Intent in the design corpus](issues/01-lock-product-intent-design.md) — design locked: closed Store includes `docs/product.md` (identity / vision / goals / non-goals) as an Install full-scaffold drop; ideas / PRDs / wayfinder maps stay planning-layer until fold-back; no vision-in-glossary; no auto-invented goals. (Ticket status left for orchestrator.)
-- [Memory Install scaffolds docs/product.md](issues/02-install-scaffolds-product-md.md) — next frontier once 01 is resolved; blocked by 01
-- [Loop syncs and folds product intent](issues/03-loop-syncs-folds-product-intent.md) — blocked by 02
+- [Lock Product Intent in the design corpus](issues/01-lock-product-intent-design.md) — resolved (`9440146`): closed Store includes `docs/product.md` (identity / vision / goals / non-goals) as an Install full-scaffold drop; ideas / PRDs / wayfinder maps stay planning-layer until fold-back; no vision-in-glossary; no auto-invented goals.
+- [Memory Install scaffolds docs/product.md](issues/02-install-scaffolds-product-md.md) — resolved (`66ae698`): Install prototype/template, AGENTS index + load cue, preflight/classify/apply/integration + prototype sync.
+- [Loop syncs and folds product intent](issues/03-loop-syncs-folds-product-intent.md) — resolved (`1d78bee`): always-on Store Sync, Architecture Review fold-back row, plan-sized Bias Destination for what/why; no new skill.
 
 ## Out of scope
 

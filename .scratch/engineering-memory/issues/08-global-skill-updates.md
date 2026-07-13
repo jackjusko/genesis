@@ -1,7 +1,7 @@
 # How do global Loop skills update after install?
 
 Type: grilling  
-Status: claimed  
+Status: resolved  
 Parent: [Engineering Memory design](../map.md)  
 Blocked by: 07
 
@@ -28,13 +28,14 @@ Re-resolved against closed Loop inventory (ticket 07), Install merge classes (ti
 
 **Memory Install** is the only path that refreshes user-global Loop artifacts. No `memory-upgrade` skill, no parallel "sync globals" command, no self-refresh from Architecture Review or the always-on rule.
 
-Closed global set (ticket 07) rewritten every refresh:
+Closed global set (ticket 07 + package deps) rewritten every refresh:
 
 | Artifact | Destination |
 |----------|-------------|
 | Always-on rule `engineering-memory` | `~/.cursor/rules/engineering-memory.mdc` |
 | Memory Install `memory-install` | `~/.agents/skills/memory-install/` |
 | Architecture Review `improve-codebase-architecture` | `~/.agents/skills/improve-codebase-architecture/` |
+| Core-four deps (`tdd`, `codebase-design`, `domain-modeling`, `grilling`) | `~/.agents/skills/<slug>/` (see [`skills/DEPENDENCIES.md`](../../skills/DEPENDENCIES.md)) |
 
 Package mirror / refresh cache (if any) is Install plumbing only -- not a Loop behavioral surface and not a second update path (ticket 07).
 

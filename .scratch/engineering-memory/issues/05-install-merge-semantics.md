@@ -1,7 +1,7 @@
 # How does Memory Install merge into an existing repo?
 
 Type: grilling  
-Status: claimed  
+Status: resolved  
 Parent: [Engineering Memory design](../map.md)  
 Blocked by: 02
 

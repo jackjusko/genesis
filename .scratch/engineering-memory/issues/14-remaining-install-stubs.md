@@ -1,7 +1,7 @@
 # What stub prose remains for other Memory Install Store drops?
 
 Type: prototype  
-Status: claimed  
+Status: resolved  
 Parent: [Engineering Memory design](../map.md)  
 Blocked by: 02, 10
 

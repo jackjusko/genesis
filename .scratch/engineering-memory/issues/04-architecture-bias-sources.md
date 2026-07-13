@@ -1,7 +1,7 @@
 # Where does Architecture Bias get its defaults?
 
 Type: research  
-Status: claimed  
+Status: resolved  
 Parent: [Engineering Memory design](../map.md)
 
 ## Question

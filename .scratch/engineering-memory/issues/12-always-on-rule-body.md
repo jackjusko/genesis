@@ -1,7 +1,7 @@
 # What is the exact body of the engineering-memory always-on rule?
 
 Type: prototype  
-Status: claimed  
+Status: resolved  
 Parent: [Engineering Memory design](../map.md)  
 Blocked by: 07
 

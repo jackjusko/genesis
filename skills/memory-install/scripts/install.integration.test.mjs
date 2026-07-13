@@ -99,6 +99,17 @@ describe("runMemoryInstall integration", () => {
     assert.ok(
       fs.existsSync(path.join(globalRoot, "skills", "memory-install", "SKILL.md")),
     );
+    for (const slug of [
+      "tdd",
+      "codebase-design",
+      "domain-modeling",
+      "grilling",
+    ]) {
+      assert.ok(
+        fs.existsSync(path.join(globalRoot, "skills", slug, "SKILL.md")),
+        `dependency skill installed: ${slug}`,
+      );
+    }
   });
 
   it("idempotent re-run is success no-op on project", () => {

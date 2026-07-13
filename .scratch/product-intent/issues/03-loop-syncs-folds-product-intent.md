@@ -4,12 +4,16 @@
 
 **Blocked by:** 02 — Memory Install scaffolds docs/product.md
 
-**Status:** ready-for-agent
+**Status:** resolved
 
 Type: task  
 Parent: [Product Intent in Memory Ops](../map.md)
 
-- [ ] Always-on Engineering Memory rule Store Sync covers product-intent sessions (load via AGENTS index; same-batch / session-end write-back for crystallized identity, vision, goals)
-- [ ] Architecture Review fold-back table includes durable product identity/vision/goal → `docs/product.md`; engineering targets unchanged
-- [ ] Plan-sized Bias handoff allows Destination = product-intent decision when the blocker is what/why; maps/tickets stay outside Store; Automatic still does not skip fold-back
-- [ ] Spec / always-on prototype (if mirrored) stay aligned with the shipped rule; package tests that guard Loop prose still pass
+- [x] Always-on Engineering Memory rule Store Sync covers product-intent sessions (load via AGENTS index; same-batch / session-end write-back for crystallized identity, vision, goals)
+- [x] Architecture Review fold-back table includes durable product identity/vision/goal → `docs/product.md`; engineering targets unchanged
+- [x] Plan-sized Bias handoff allows Destination = product-intent decision when the blocker is what/why; maps/tickets stay outside Store; Automatic still does not skip fold-back
+- [x] Spec / always-on prototype (if mirrored) stay aligned with the shipped rule; package tests that guard Loop prose still pass
+
+## Answer
+
+Loop Sync/fold-back now keeps Product Intent current without a new skill. Commit `1d78bee11c733253e41973ddc03af998fd1c5152`.

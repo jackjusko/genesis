@@ -1,7 +1,7 @@
 # What markers classify an Install path as "ours"?
 
 Type: grilling  
-Status: claimed  
+Status: resolved  
 Parent: [Engineering Memory design](../map.md)  
 Blocked by: 05
 

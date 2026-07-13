@@ -1,7 +1,7 @@
 # What is the Loop artifact inventory?
 
 Type: grilling  
-Status: claimed  
+Status: resolved  
 Parent: [Engineering Memory design](../map.md)  
 Blocked by: 02, 06
 

@@ -1,7 +1,7 @@
 # What is the primary architecture doc template?
 
 Type: prototype  
-Status: claimed  
+Status: resolved  
 Parent: [Engineering Memory design](../map.md)  
 Blocked by: 02
 
