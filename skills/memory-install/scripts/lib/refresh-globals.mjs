@@ -6,6 +6,12 @@ export const DEPENDENCY_SKILLS = [
   "codebase-design",
   "domain-modeling",
   "grilling",
+  "auto-build",
+  "wayfinder",
+  "grill-me",
+  "grill-with-docs",
+  "to-tickets",
+  "drain-tickets",
 ];
 
 /**

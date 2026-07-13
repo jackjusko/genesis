@@ -14,7 +14,7 @@ Index of this repo's Memory Store and Loop wiring. Load these when the session t
 ### Loop
 
 - Always-on rule: **Engineering Memory** (`engineering-memory`) — Store Sync, Architecture Bias, `/tdd` habit (user-global; body not pasted here).
-- Skills: **Memory Install** (`memory-install`), **Architecture Review** (`improve-codebase-architecture`).
+- Skills: **Memory Install** (`memory-install`), **Architecture Review** (`improve-codebase-architecture`), **Auto-build** (`auto-build`) — one-shot AFK grill → wayfinder → tickets → drain (Loop skill; maps stay outside Store).
 
 ### Planning
 

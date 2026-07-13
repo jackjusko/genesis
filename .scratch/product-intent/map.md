@@ -24,4 +24,4 @@ Engineering Memory’s Memory Store and Loop also keep durable **project identit
 - Folding wayfinder maps / idea trackers into the Store
 - Putting vision into `CONTEXT.md`
 - Auto-writing goals the user never stated
-- Packaging `wayfinder` or `write-milestone-brief` into Engineering Memory
+- Packaging `write-milestone-brief` into Engineering Memory

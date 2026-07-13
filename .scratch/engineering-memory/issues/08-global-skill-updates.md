@@ -35,7 +35,7 @@ Closed global set (ticket 07 + package deps) rewritten every refresh:
 | Always-on rule `engineering-memory` | `~/.cursor/rules/engineering-memory.mdc` |
 | Memory Install `memory-install` | `~/.agents/skills/memory-install/` |
 | Architecture Review `improve-codebase-architecture` | `~/.agents/skills/improve-codebase-architecture/` |
-| Core-four deps (`tdd`, `codebase-design`, `domain-modeling`, `grilling`) | `~/.agents/skills/<slug>/` (see [`skills/DEPENDENCIES.md`](../../skills/DEPENDENCIES.md)) |
+| Package-owned deps (core-four + auto-build pipeline) | `~/.agents/skills/<slug>/` (see [`skills/DEPENDENCIES.md`](../../skills/DEPENDENCIES.md)) |
 
 Package mirror / refresh cache (if any) is Install plumbing only -- not a Loop behavioral surface and not a second update path (ticket 07).
 

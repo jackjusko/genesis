@@ -37,10 +37,10 @@ Globals written every invoke:
 | Always-on rule `engineering-memory` | `~/.cursor/rules/engineering-memory.mdc` (`alwaysApply: true`) |
 | Architecture Review | `~/.agents/skills/improve-codebase-architecture/` |
 | Memory Install (self) | `~/.agents/skills/memory-install/` |
-| Core-four deps (`tdd`, `codebase-design`, `domain-modeling`, `grilling`) | `~/.agents/skills/<slug>/` (always overwrite) |
+| Package-owned deps (core-four + auto-build pipeline) | `~/.agents/skills/<slug>/` (always overwrite) |
 | Package mirror (for later refreshes) | `~/.agents/engineering-memory/` (`rules/` + `skills/`) |
 
-See [DEPENDENCIES.md](../DEPENDENCIES.md) for the closed dependency set.
+See [DEPENDENCIES.md](../DEPENDENCIES.md) for the closed dependency set (`tdd`, `codebase-design`, `domain-modeling`, `grilling`, `auto-build`, `wayfinder`, `grill-me`, `grill-with-docs`, `to-tickets`, `drain-tickets`).
 
 ### 2. Project preflight
 

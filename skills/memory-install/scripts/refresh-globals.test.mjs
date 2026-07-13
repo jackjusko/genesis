@@ -5,46 +5,49 @@ import {
   planGlobalRefresh,
 } from "./lib/refresh-globals.mjs";
 
+const EXPECTED_DEPS = [
+  "tdd",
+  "codebase-design",
+  "domain-modeling",
+  "grilling",
+  "auto-build",
+  "wayfinder",
+  "grill-me",
+  "grill-with-docs",
+  "to-tickets",
+  "drain-tickets",
+];
+
 describe("planGlobalRefresh", () => {
-  it("always overwrites rule + Loop skills + core-four deps from package", () => {
+  it("always overwrites rule + Loop skills + package deps from package", () => {
     const plan = planGlobalRefresh({
       packageRoot: "/pkg",
       agentsSkillsDir: "/home/.agents/skills",
       cursorRulesDir: "/home/.cursor/rules",
     });
+    const expectedPairs = [
+      [
+        "/pkg/rules/engineering-memory.mdc",
+        "/home/.cursor/rules/engineering-memory.mdc",
+      ],
+      [
+        "/pkg/skills/improve-codebase-architecture",
+        "/home/.agents/skills/improve-codebase-architecture",
+      ],
+      [
+        "/pkg/skills/memory-install",
+        "/home/.agents/skills/memory-install",
+      ],
+      ...EXPECTED_DEPS.map((slug) => [
+        `/pkg/skills/${slug}`,
+        `/home/.agents/skills/${slug}`,
+      ]),
+    ];
     assert.deepEqual(
       plan.map((p) => [p.from.replace(/\\/g, "/"), p.to.replace(/\\/g, "/")]),
-      [
-        [
-          "/pkg/rules/engineering-memory.mdc",
-          "/home/.cursor/rules/engineering-memory.mdc",
-        ],
-        [
-          "/pkg/skills/improve-codebase-architecture",
-          "/home/.agents/skills/improve-codebase-architecture",
-        ],
-        [
-          "/pkg/skills/memory-install",
-          "/home/.agents/skills/memory-install",
-        ],
-        ["/pkg/skills/tdd", "/home/.agents/skills/tdd"],
-        [
-          "/pkg/skills/codebase-design",
-          "/home/.agents/skills/codebase-design",
-        ],
-        [
-          "/pkg/skills/domain-modeling",
-          "/home/.agents/skills/domain-modeling",
-        ],
-        ["/pkg/skills/grilling", "/home/.agents/skills/grilling"],
-      ],
+      expectedPairs,
     );
-    assert.deepEqual(DEPENDENCY_SKILLS, [
-      "tdd",
-      "codebase-design",
-      "domain-modeling",
-      "grilling",
-    ]);
+    assert.deepEqual(DEPENDENCY_SKILLS, EXPECTED_DEPS);
   });
 
   it("mirrors full package when packageMirrorDir is set", () => {
