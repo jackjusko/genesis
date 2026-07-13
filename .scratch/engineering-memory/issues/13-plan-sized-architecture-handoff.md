@@ -54,7 +54,7 @@ When the map?s Destination is met (way clear ? no open tickets blocking the arch
 - Plan-sized gate does not auto-start implementation under Automatic mode.
 - Mode choice is not persisted into `docs/conventions.md` unless the project earns a standing preference ADR/convention later.
 
-Spec § Architecture Bias updated.
+Spec ? Architecture Bias updated.
 
 ## Answer
 
@@ -66,7 +66,7 @@ Re-resolved against Architecture Bias vocabulary (CONTEXT), closed Loop duties (
 |------|------|
 | 1. **Stop** | Classify **plan-sized** ? **stop all implementation** in that thread until Destination is met **and** Store fold-back completes, or the user explicitly overrides (?treat as ordinary stretch?). |
 | 2. **Mode chooser** | Before charting, offer exactly **Automatic** / **Critical only** / **Full grill**. Wait for a pick unless a **standing per-effort** preference already exists (map Notes or session instruction). **Critical only** if unset. No fourth mode. |
-| 3. **Chart outside Store** | Invoke **Wayfinder** (or repo equivalent). **Destination = the architecture/design decision needed** ? not the full product, not ?implement X,? not shipping code. Map + tickets live on the **issue tracker** (here: `.scratch/<effort>/`). Never under Store paths. |
+| 3. **Chart outside Store** | Invoke **Wayfinder** (or repo equivalent). **Destination = the architecture/design decision needed**, or a **Product Intent** decision when the blocker is what/why (identity, vision, goals) ? not the full shipping product, not ?implement X,? not shipping code. Map + tickets live on the **issue tracker** (here: `.scratch/<effort>/`). Never under Store paths. |
 | 4. **Degrade / inline** | If Wayfinder/skills unavailable: same shape inline in-session (Destination ? decisions ? frontier), still **outside** Store; fold-back rules unchanged. |
 | 5. **Work the map** | Claim ? resolve ? Decisions-so-far one-liners. One ticket at a time unless the user overrides (Automatic / Critical-only sweeps). Mode controls **how HITL asks**, never whether fold-back happens. Prototype/research assets link from tickets; they are not Store until fold-back. |
 | 6. **Fold-back then implement** | When Destination is met: **Store fold-back first** (same session, before code), **then** implement under Store Sync + `/tdd`. Leave the map as a decision-route artifact (do not move into Store; delete only if the user asks). |
@@ -87,6 +87,7 @@ Mandatory before any plan-sized implementation. Prefer folding as decisions crys
 
 | Outcome | Store target |
 |--------|----------------|
+| Durable product identity / vision / goals | `docs/product.md` (do not invent goals the user never stated) |
 | Seams / module shape / earned deep-dive | `docs/architecture.md` and/or `docs/architecture/<kebab>.md` |
 | Domain terms | `CONTEXT.md` (via `/domain-modeling`) |
 | Hard override / don?t re-suggest | **Offer** ADR under `docs/adr/` (do not auto-write) |
@@ -100,7 +101,7 @@ The map path on the issue tracker **is** the resume artifact. Next session opens
 
 ### Rejected alternatives
 
-1. **Paste full handoff into the always-on rule.** Rejected: ticket 12 ? rule stays skim-cheap; this ticket + spec § Architecture Bias own mechanics; rule keeps a pointer.
+1. **Paste full handoff into the always-on rule.** Rejected: ticket 12 ? rule stays skim-cheap; this ticket + spec ? Architecture Bias own mechanics; rule keeps a pointer.
 2. **Host maps/tickets under Store paths** (or ?active efforts? as Store content). Rejected: map Out of scope + AGENTS Planning non-ownership; Store is durable architecture, not a tracker.
 3. **Automatic ? implement as soon as tickets clear** (skip explicit fold-back). Rejected: violates fold-back-then-implement and Wayfinder plan-don?t-do; Automatic only changes HITL density.
 4. **Destination = ?feature shipped? / carry execution into the map by default.** Rejected: Destination is the architecture decision clear enough to implement; execution follows under ordinary Loop after fold-back (effort Notes may override Wayfinder?s plan-don?t-do only with explicit user intent ? not the Bias default).
@@ -109,7 +110,7 @@ The map path on the issue tracker **is** the resume artifact. Next session opens
 
 ### Surfaces updated
 
-- Spec § Architecture Bias / Plan-sized handoff (and Memory Loop pointer unchanged in role).
+- Spec ? Architecture Bias / Plan-sized handoff (and Memory Loop pointer unchanged in role).
 - Map Decisions-so-far one-liner.
 - Always-on prototype: pointer-only retained; skim wording aligned (no pasted mechanics).
 

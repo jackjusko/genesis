@@ -9,13 +9,13 @@ alwaysApply: true
 
 # Engineering Memory
 
-Always-on Loop duties for repos that use Engineering Memory. Apply when the session may change code, structure, domain language, or conventions.
+Always-on Loop duties for repos that use Engineering Memory. Apply when the session may change code, structure, domain language, conventions, or product intent (identity, vision, goals).
 
 ## 1. Store Sync
 
 - **Session start:** load the relevant Memory Store docs for the work ahead via the project `## Engineering Memory` AGENTS.md index (do not invent paths).
-- **Structural change:** when the change creates or renames a seam/module, shifts a convention, or earns a deep-dive, update the Store **in the same batch** as the code.
-- **Session end:** write back any other material Store changes before finishing (glossary sharpening, corpus corrections, earned conventions).
+- **Same-batch write:** when the change creates or renames a seam/module, shifts a convention, earns a deep-dive, or crystallizes product identity/vision/goals, update the Store **in the same batch**. Do not invent goals the user never stated.
+- **Session end:** write back any other material Store changes before finishing (glossary sharpening, corpus corrections, earned conventions, crystallized identity/vision/goals).
 
 Do not rely on an optional sync skill — Sync is this rule only.
 
@@ -40,7 +40,7 @@ A change is **plan-sized** when size or complexity needs a designed architecture
    - **Automatic** — agent recommendations throughout; ask only if blocked.
    - **Critical only** — ask only highest-stakes questions; recommendations elsewhere. **Default if unset.**
    - **Full grill** — HITL grilling on each decision.
-3. Run planning **outside** the Memory Store via Wayfinder (or equivalent) — Destination is the architecture decision, not implementation. The Store does not own maps or tickets.
+3. Run planning **outside** the Memory Store via Wayfinder (or equivalent) — Destination is the architecture decision, or a **Product Intent** decision when the blocker is what/why (identity, vision, goals) — not implementation. The Store does not own maps or tickets.
 4. When Destination is met: **Store fold-back** (same targets as Architecture Review — offer ADRs, do not auto-write), **then** implement. Automatic does not skip fold-back.
 
 Exact handoff steps live in the Engineering Memory design spec § Architecture Bias / Plan-sized handoff (ticket 13). Do not paste planning maps into the Store.

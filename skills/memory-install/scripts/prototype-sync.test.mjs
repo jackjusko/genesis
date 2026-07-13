@@ -98,10 +98,39 @@ describe("packaged Install drops match locked prototypes", () => {
     );
   });
 
+  it("always-on rule Store Sync covers product-intent sessions", () => {
+    const rule = read("rules/engineering-memory.mdc");
+    assert.match(
+      rule,
+      /product intent|identity.*vision.*goals|vision.*goals/i,
+      "apply/load cues should cover product-intent sessions",
+    );
+    assert.match(
+      rule,
+      /identity|vision|goals/i,
+      "write-back should mention crystallized Product Intent outcomes",
+    );
+    assert.doesNotMatch(
+      rule,
+      /docs\/product\.md/,
+      "rule must not embed Store path list (load via AGENTS index)",
+    );
+  });
+
   it("always-on rule keeps plan-sized handoff as pointer only", () => {
     const rule = read("rules/engineering-memory.mdc");
     assert.match(rule, /ticket 13/);
     assert.doesNotMatch(rule, /#### Plan-sized handoff \(exact\)/);
+  });
+
+  it("always-on plan-sized Destination may be product-intent when blocker is what/why", () => {
+    const rule = read("rules/engineering-memory.mdc");
+    assert.match(
+      rule,
+      /product-intent|Product Intent|what\/why|identity|vision/i,
+    );
+    assert.match(rule, /Automatic does not skip fold-back/);
+    assert.match(rule, /does not own maps or tickets|Store does not own maps/);
   });
 
   it("AGENTS Memory Store bullets follow ticket 02 path order", () => {
@@ -152,5 +181,18 @@ describe("Architecture Review packaging (ticket 06)", () => {
     assert.match(body, /do not auto-write/);
     assert.match(body, /architecture-review-<timestamp>\.html/);
     assert.match(body, /subagent_type=Explore/);
+  });
+
+  it("fold-back table includes Product Intent → docs/product.md", () => {
+    const body = fs.readFileSync(skillPath, "utf8");
+    assert.match(
+      body,
+      /[Dd]urable product identity|identity\/vision\/goal|Product Intent/,
+    );
+    assert.match(body, /docs\/product\.md/);
+    assert.match(body, /docs\/architecture\.md/);
+    assert.match(body, /CONTEXT\.md/);
+    assert.match(body, /docs\/conventions\.md/);
+    assert.match(body, /docs\/adr\//);
   });
 });

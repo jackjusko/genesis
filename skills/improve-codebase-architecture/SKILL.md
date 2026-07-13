@@ -3,7 +3,7 @@ name: improve-codebase-architecture
 description: >-
   Architecture Review — scan a codebase for deepening opportunities, present a
   temp HTML report, grill the pick, then fold durable decisions back into the
-  Memory Store (architecture corpus, CONTEXT.md, ADRs, conventions).
+  Memory Store (architecture corpus, Product Intent, CONTEXT.md, ADRs, conventions).
 disable-model-invocation: true
 ---
 
@@ -14,7 +14,7 @@ Surface architectural friction and propose **deepening opportunities** — refac
 This is Engineering Memory’s **Architecture Review** surface (skill slug locked to `improve-codebase-architecture`). It is _informed_ by the project’s Memory Store and built on a shared design vocabulary:
 
 - Run the `/codebase-design` skill for the architecture vocabulary (**module**, **interface**, **depth**, **seam**, **adapter**, **leverage**, **locality**) and its principles (the deletion test, "the interface is the test surface", "one adapter = hypothetical seam, two = real"). Use these terms exactly in every suggestion — don't drift into "component," "service," "API," or "boundary."
-- Load the Memory Store first when present: `CONTEXT.md`, `docs/architecture.md` (+ linked deep-dives), `docs/conventions.md`, and ADRs in `docs/adr/` for the area you’re touching. Use the project `## Engineering Memory` AGENTS.md index for paths. If Store pieces are missing, **note the gaps and degrade** — do not invent architecture.
+- Load the Memory Store first when present: `CONTEXT.md`, `docs/product.md`, `docs/architecture.md` (+ linked deep-dives), `docs/conventions.md`, and ADRs in `docs/adr/` for the area you’re touching. Use the project `## Engineering Memory` AGENTS.md index for paths. If Store pieces are missing, **note the gaps and degrade** — do not invent architecture.
 
 **Triggers:** milestone/phase boundaries, friction (Store Sync thrash, hard-to-test seams, agent can’t locate a seam), or manual invoke. Not a fixed every-N-sessions ritual.
 
@@ -78,6 +78,7 @@ Same session, before ending. Durable outcomes land in the Memory Store — **no 
 
 | Outcome | Store target |
 |--------|----------------|
+| Durable product identity / vision / goals | `docs/product.md` (do not invent goals the user never stated) |
 | Seams / module shape / earned deep-dive | `docs/architecture.md` and/or `docs/architecture/<kebab>.md` |
 | Domain terms | `CONTEXT.md` (via `/domain-modeling`) |
 | Hard override / don’t re-suggest | **Offer** ADR under `docs/adr/` (do not auto-write) |

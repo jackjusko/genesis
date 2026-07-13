@@ -81,8 +81,8 @@ Closed inventory (detail: [issues/07-loop-artifact-inventory.md](issues/07-loop-
 
 **User-global — always-on rule `engineering-memory`:** three duties only (`~/.cursor/rules/engineering-memory.mdc`, `alwaysApply: true`). Exact body: [prototypes/engineering-memory-always-on-rule.md](prototypes/engineering-memory-always-on-rule.md) (strip PROTOTYPE comment; frontmatter included).
 
-1. **Store Sync** — load relevant Store at session start **via** the project AGENTS index (no path list in the rule); write back material changes before session end; same-batch update on structural change. No optional sync skill.
-2. **Architecture Bias** — soft deep-module defaults + agent-authored conventions; ADRs win; never-installed Store → note gap, degrade. Prefer expanding architecture over hacky/short-term fit (extension must fit existing corpus + bias). **Ordinary stretch:** design → implement → Store write same batch. **Plan-sized:** stop (unless user overrides to ordinary stretch); offer **Automatic** / **Critical only** (default if unset) / **Full grill**; plan outside Store; Destination met → Store fold-back then implement (Automatic does not skip fold-back). Exact Wayfinder handoff mechanics → [issues/13-plan-sized-architecture-handoff.md](issues/13-plan-sized-architecture-handoff.md) (not pasted into the rule).
+1. **Store Sync** — load relevant Store at session start **via** the project AGENTS index (no path list in the rule), including Product Intent when the session touches identity / vision / goals; write back material changes before session end; same-batch update on structural change **or** crystallized identity/vision/goals (never invent goals the user never stated). No optional sync skill.
+2. **Architecture Bias** — soft deep-module defaults + agent-authored conventions; ADRs win; never-installed Store → note gap, degrade. Prefer expanding architecture over hacky/short-term fit (extension must fit existing corpus + bias). **Ordinary stretch:** design → implement → Store write same batch. **Plan-sized:** stop (unless user overrides to ordinary stretch); offer **Automatic** / **Critical only** (default if unset) / **Full grill**; plan outside Store; Destination = architecture/design decision, **or** Product Intent decision when the blocker is what/why; Destination met → Store fold-back then implement (Automatic does not skip fold-back). Exact Wayfinder handoff mechanics → [issues/13-plan-sized-architecture-handoff.md](issues/13-plan-sized-architecture-handoff.md) (not pasted into the rule).
 3. **`/tdd` habit** — use `/tdd` when writing/changing code; procedure stays in the skill (not a separate Install skill).
 
 **User-global — `memory-install`:** sole updater of the global Loop set — every invoke replaces rule + both skills with packaged latest from the package root (globals complete before project; no rollback of globals on project conflict), then full-scaffold / merge-preflight the project Store + AGENTS.md section (per Memory Install; Store + AGENTS never auto-upgraded from newer stubs). Not Review, not living architecture beyond stubs, not hooks/CI.
@@ -143,6 +143,7 @@ Packaged by **evolving** `/improve-codebase-architecture` **in place** (no wrapp
 
 | Outcome | Store target |
 |--------|----------------|
+| Durable product identity / vision / goals | `docs/product.md` (do not invent goals the user never stated) |
 | Seams / module shape / earned deep-dive | `docs/architecture.md` and/or `docs/architecture/<kebab>.md` |
 | Domain terms | `CONTEXT.md` (via `/domain-modeling`) |
 | Hard override / don’t re-suggest | **Offer** ADR under `docs/adr/` (do not auto-write) |
@@ -164,9 +165,9 @@ Exact mechanics (detail: [issues/13-plan-sized-architecture-handoff.md](issues/1
 
 1. **Stop implementing** until Destination is met **and** Store fold-back completes (unless user explicitly overrides to ordinary stretch).
 2. Offer **Automatic** / **Critical only** (default if unset) / **Full grill**; honour a standing per-effort preference when set (map Notes / session). Mode choice is not written to conventions unless later earned.
-3. **Chart + work** via Wayfinder (or equivalent) on the issue tracker — **Destination = the architecture/design decision needed** (not the full product, not “implement X”). Maps/tickets never live in Store paths. If Wayfinder unavailable, same shape inline in-session, still outside Store. Resume = open that map path (optional AGENTS/Store “active efforts” pointers stay deferred fog).
+3. **Chart + work** via Wayfinder (or equivalent) on the issue tracker — **Destination = the architecture/design decision needed**, or a **Product Intent** decision when the blocker is what/why (identity, vision, goals) — not the full shipping product, not “implement X”. Maps/tickets never live in Store paths. If Wayfinder unavailable, same shape inline in-session, still outside Store. Resume = open that map path (optional AGENTS/Store “active efforts” pointers stay deferred fog).
 4. Mode controls how HITL tickets ask; **not** whether fold-back happens. Automatic still plans — it does **not** skip fold-back or auto-start implementation.
-5. Prefer folding durable outcomes as they crystallize; **must** complete fold-back before code when Destination is met. Targets = Architecture Review table (architecture / glossary / **offer** ADR / conventions Project-specific). **Then implement** under Store Sync + `/tdd`. Leave the map as a decision-route artifact unless the user deletes it.
+5. Prefer folding durable outcomes as they crystallize; **must** complete fold-back before code when Destination is met. Targets = Architecture Review table (Product Intent / architecture / glossary / **offer** ADR / conventions Project-specific). **Then implement** under Store Sync + `/tdd`. Leave the map as a decision-route artifact unless the user deletes it.
 
 **Install seed sources** (detail: [research/architecture-bias-sources.md](research/architecture-bias-sources.md)):
 
