@@ -71,27 +71,34 @@ Closed inventory (detail: [issues/07-loop-artifact-inventory.md](issues/07-loop-
 
 ## Memory Install
 
-Brownfield-safe full scaffold. Hybrid packaging (global Loop vs local Store) is unchanged; this section is **conflict and merge** rules plus **global update** behavior.
+Brownfield-safe full scaffold of the project-local Store + `AGENTS.md` Engineering Memory section. Hybrid packaging and global Loop refresh (always replace packaged latest, then project preflight) live under Product & packaging / ticket 08. This section locks **conflict and merge** only. Project Store never auto-upgrades when stubs advance — ours → skip.
 
-**Update path:** Re-invoking Memory Install is how Loop skills/rules receive updates. Order: replace user-global artifacts with packaged latest → project preflight/merge. Globals are package-owned (always overwrite). Project Store stays under the rules below — living “ours” docs are never rewritten just because templates advanced.
+**Preflight set:** every path Install would create — Store install files (Memory Store) plus `AGENTS.md` § Engineering Memory.
 
-**Preflight:** Classify every path Install would create as **missing**, **ours** (recognized Engineering Memory artifact → skip), or **conflict** (foreign content at that path, or file↔directory mismatch). Existing `docs/adr/` / `docs/architecture/` dirs are fine; existing ADRs and deep-dives are never conflicts. A new file inside those dirs conflicts only if it already exists and isn’t ours.
+| Class | Meaning | Default action |
+|-------|---------|----------------|
+| **missing** | Absent — or for `AGENTS.md`, file may exist but the Engineering Memory section heading is absent | Create / append after clean preflight |
+| **ours** | Recognized Engineering Memory Install artifact | **Skip** (not a conflict) |
+| **conflict** | Exists and is not ours; or file↔directory type mismatch | Block (atomic fail) |
 
-**Default run:** If any **conflict** → write **nothing**, list all conflicts, fail, and **offer** in-session AI-guided interactive merge (explicit yes required). Clean preflight (only missing + ours) → create missing paths; fully installed → success no-op.
+Exact **ours** recognition (file markers, AGENTS heading) is [issues/10-install-ours-markers.md](issues/10-install-ours-markers.md).
 
-**Interactive merge:**
+**Directory rules:** Existing `docs/adr/` / `docs/architecture/` dirs are never conflicts. Existing ADRs and deep-dives are never Install recreates and never conflicts. A new file Install would drop inside those dirs (pointer READMEs) conflicts only if that file already exists and isn’t ours.
+
+**Default run (atomic):** Any **conflict** → write **nothing** (do not create other missing paths either), list all conflicts, fail non-zero, and **offer** in-session AI-guided interactive merge (explicit yes required; never silent). Clean preflight (missing + ours only) → create/append missing. All ours → success no-op.
+
+**Interactive merge** (after explicit yes):
 
 | Path | Rule |
 |------|------|
-| `AGENTS.md` (and similar project Loop wiring) | Section append/update only; never whole-file replace; diff + confirm |
+| `AGENTS.md` | Section append/update only; never whole-file replace; diff + confirm |
 | `CONTEXT.md` | Preserve glossary; no term rewrites; optional pointer if no EM linkage |
-| `docs/architecture.md` | Add missing required template sections only; never delete prose; confirm |
+| `docs/architecture.md` | Add missing required template H2s only; never delete prose; confirm |
 | `docs/conventions.md` | Add missing seed sections only; preserve existing conventions; confirm |
+| Pointer READMEs | Confirm vs stub; never delete sibling ADRs / deep-dives |
 | Type mismatch | Ask — no auto rename/delete |
 
-**Non-canonical architecture docs:** Not conflicts. May still create `docs/architecture.md`. Warn with discovered alternate paths; never auto-move/overwrite.
-
-**“Ours” detection:** For Install-owned files, classify **ours** only if `<!-- engineering-memory:install -->` appears as the first non-empty line (or within the first 20 lines). Exact, case-sensitive; no version suffix in v1. If the marker is removed later, the path is no longer ours (conflict on recreate). **`AGENTS.md`:** ours section = heading `## Engineering Memory` present → skip section rewrite on re-run; never whole-file replace. **Dirs** `docs/adr/` and `docs/architecture/` are never conflicts. ADRs and deep-dives are never Install recreates. No content-fingerprint heuristics. Globals always overwrite (no ours check).
+**Non-canonical architecture docs** (`ARCHITECTURE.md`, etc.): not conflicts. May still create `docs/architecture.md` when missing. Warn with discovered paths; never auto-move/overwrite. Fold-in later via Store Sync / Architecture Review.
 
 ## Architecture Review
 
