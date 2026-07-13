@@ -15,7 +15,7 @@ Sole primary design/spec for Cursor Engineering Memory at this path (charting ha
 
 No optional sync skill. No project copies of the rule or Loop skills. Explore subagent is invoke-only (Architecture Review), not an Install drop. `/grilling`, `/domain-modeling`, `/codebase-design`, and `/tdd` stay existing on-demand skills — not Engineering Memory Install drops. Implementation/shipping of the package is out of scope for this design.
 
-**Global Loop updates:** Memory Install is the sole updater. Every invoke (1) **always replaces** user-global rule + skills with packaged latest (package-owned; no global merge), then (2) runs project preflight/merge. No separate upgrade skill, no globals-only flag. **Project Store never auto-upgrades** when stubs advance — ours/skip, missing/create, conflict/offer interactive merge. Version pins and release changelogs deferred.
+**Global Loop updates:** Memory Install is the sole updater (no upgrade skill; Review / always-on never self-refresh). Every invoke (1) **always replaces** the closed global set (`engineering-memory` rule, `memory-install`, `improve-codebase-architecture`) with packaged latest from the invoke’s **package root** (package-owned; no global merge; fail loudly on partial global write — do not start project writes), then (2) runs project preflight/merge. Project conflict does **not** roll back globals. No globals-only flag. **Project Store + AGENTS index never auto-upgrade** when stubs advance — ours/skip, missing/create, conflict/offer interactive merge. Version pins and release changelogs deferred. Detail: [issues/08-global-skill-updates.md](issues/08-global-skill-updates.md).
 
 ## Memory Store
 
@@ -65,13 +65,13 @@ Closed inventory (detail: [issues/07-loop-artifact-inventory.md](issues/07-loop-
 2. **Architecture Bias** — soft deep-module defaults; prefer expanding architecture over hacky/short-term fit (extension must fit existing corpus + bias). **Ordinary stretch:** design → implement → Store write same batch. **Plan-sized:** stop; offer **Automatic** / **Critical only** (default if unset) / **Full grill**; plan outside Store; on resolve, Store update then implement. Never-installed Store → note gap, degrade. Plan-sized handoff: [issues/13-plan-sized-architecture-handoff.md](issues/13-plan-sized-architecture-handoff.md).
 3. **`/tdd` habit** — use `/tdd` when writing/changing code (not a separate Install skill).
 
-**User-global — `memory-install`:** sole updater of the global Loop set — every invoke replaces rule + both skills with packaged latest, then full-scaffold / merge-preflight the project Store + AGENTS.md section (per Memory Install; Store never auto-upgraded from newer stubs). Not Review, not living architecture beyond stubs, not hooks/CI.
+**User-global — `memory-install`:** sole updater of the global Loop set — every invoke replaces rule + both skills with packaged latest from the package root (globals complete before project; no rollback of globals on project conflict), then full-scaffold / merge-preflight the project Store + AGENTS.md section (per Memory Install; Store + AGENTS never auto-upgraded from newer stubs). Not Review, not living architecture beyond stubs, not hooks/CI.
 
 **User-global — Architecture Review** (slug locked `improve-codebase-architecture`): deepening pass with Explore invoke-only; Store fold-back when decisions crystallize (see Architecture Review).
 
 ## Memory Install
 
-Brownfield-safe full scaffold of the project-local Store + `AGENTS.md` Engineering Memory section. Hybrid packaging and global Loop refresh (always replace packaged latest, then project preflight) live under Product & packaging / ticket 08. This section locks **conflict and merge** only. Project Store never auto-upgrades when stubs advance — ours → skip.
+Brownfield-safe full scaffold of the project-local Store + `AGENTS.md` Engineering Memory section. Hybrid packaging and global Loop refresh (always replace packaged latest from package root, then project preflight; no globals rollback on conflict) live under Product & packaging / [ticket 08](issues/08-global-skill-updates.md). This section locks **conflict and merge** only. Project Store + AGENTS index never auto-upgrade when stubs advance — ours → skip.
 
 **Preflight set:** every path Install would create — Store install files (Memory Store) plus `AGENTS.md` § Engineering Memory.
 
