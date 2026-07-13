@@ -43,13 +43,13 @@ Deep-dives are added later as kebab-case files under `docs/architecture/` when a
 
 ### Primary architecture doc (`docs/architecture.md`)
 
-Install drops the template validated in [prototypes/architecture-md-template.md](prototypes/architecture-md-template.md) (without the PROTOTYPE banner).
+Install drops the template validated in [prototypes/architecture-md-template.md](prototypes/architecture-md-template.md). Keep `<!-- engineering-memory:install -->`; strip the PROTOTYPE comment only.
 
-**Required sections (order fixed):** opening (purpose + Store pointers + how-to-use) → System shape → Key seams → Deep-dives → Out of scope for this doc.
+**Structure (order fixed):** H1 `# Architecture` + opening preamble (purpose, Store pointers to `CONTEXT.md` / `docs/adr/` / `docs/conventions.md`, how-to-use + write-today rule) → exact H2s `## System shape` → `## Key seams` → `## Deep-dives` → `## Out of scope for this doc`. Those four H2 titles are the interactive-merge required-section contract (add missing only; never delete prose). Opening is not a separate H2.
 
-**Stub depth:** Repo-independent prose is filled (opening, deep-dives intro, out-of-scope). Repo-specific sections use HTML guidance comments plus one `_TODO_` placeholder — not empty headings, not fictional architecture.
+**Stub depth:** Repo-independent prose filled (opening, deep-dives intro, out-of-scope). Repo-specific sections: HTML guidance comments + one `_TODO_` (System shape may include a commented mermaid skeleton; Key seams use recipe `**SeamName** - Interface: ...; varies: ...` with codebase-design vocabulary). Not empty headings, not fictional architecture.
 
-**Deep-dive index:** A table in the primary doc links earned kebab-case files under `docs/architecture/`; install starts with “none yet”. No pre-seeded deep-dive files.
+**Deep-dive index:** Table (`Deep-dive` | `When to open it`) in the primary doc; links `architecture/<kebab-slug>.md`. Install starts with `_(none yet)_`; first earn **replaces** that row. No pre-seeded deep-dive files.
 
 Stub prose for other Store paths: [CONTEXT.md](prototypes/context-md-stub.md), [docs/adr/README.md](prototypes/adr-readme-stub.md), [docs/architecture/README.md](prototypes/architecture-dir-readme-stub.md). Brownfield merge: see Memory Install.
 
