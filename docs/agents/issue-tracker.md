@@ -30,3 +30,5 @@ Used by `/wayfinder` and by `/auto-build` (which charts/works maps under AFK aut
 - **Resolve**: append the answer under an `## Answer` heading, set `Status: resolved`, then append a context pointer (gist + link) to the map's Decisions-so-far in `map.md`.
 
 Planning maps stay **outside** the Memory Store. `/auto-build` is a Loop skill that may orchestrate wayfinder → to-tickets → drain-tickets; it does not make maps Store content.
+
+Bounded research/implement work on the frontier should follow **subagent-first** — see [`subagents.md`](subagents.md).

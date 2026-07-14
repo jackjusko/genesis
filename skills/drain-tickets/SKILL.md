@@ -10,6 +10,8 @@ Orchestrate implementation across a feature's ticket queue: pick the next unbloc
 
 You are the **orchestrator**. Do not implement inline. Do not keep implementing in a finished subagent's context — always spawn new.
 
+Follow **subagent-first** ([`docs/agents/subagents.md`](../../docs/agents/subagents.md) when present): each ticket is a bounded child with a **complete brief**. Never tell the child to rely on parent conversation history. Parent keeps claim/mark/frontier only.
+
 The issue tracker and triage label vocabulary should have been provided to you — run `/setup-matt-pocock-skills` if `docs/agents/issue-tracker.md` is missing.
 
 ## Invocation
@@ -52,6 +54,7 @@ Spawn the `implement` subagent (`~/.cursor/agents/implement.md`) via the Task to
 - Any pre-agreed TDD seams / user constraints
 - Pre-implement `HEAD` SHA (for code-review fixed point)
 - Instruction: stay inside this ticket's scope
+- Everything else the child needs to succeed without reading this chat
 
 Do not pass the whole queue. Do not resume a prior implement subagent.
 
@@ -78,6 +81,7 @@ Never force past a red suite or an unclear brief.
 ## Rules
 
 - One ticket per implement subagent
+- Complete brief per spawn — no history reliance
 - Respect blocking edges — never pick a blocked ticket
 - Parent chat stays thin: pick → claim → spawn → mark → repeat
 - No drive-by work outside the current ticket

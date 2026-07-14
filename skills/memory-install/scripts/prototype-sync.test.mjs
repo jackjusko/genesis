@@ -133,6 +133,13 @@ describe("packaged Install drops match locked prototypes", () => {
     assert.match(rule, /does not own maps or tickets|Store does not own maps/);
   });
 
+  it("always-on rule points at subagent-first policy", () => {
+    const rule = read("rules/engineering-memory.mdc");
+    assert.match(rule, /## 4\. Subagents/);
+    assert.match(rule, /docs\/agents\/subagents\.md/);
+    assert.match(rule, /complete brief|nuance|cross-cutting/i);
+  });
+
   it("AGENTS Memory Store bullets follow ticket 02 path order", () => {
     const section = read(
       "skills/memory-install/templates/agents-md-engineering-memory-section.md",

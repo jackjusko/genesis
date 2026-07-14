@@ -12,7 +12,7 @@ disable-model-invocation: true
 
 Finish the seed into a shipped product **without waiting for HITL**, with minimal narration.
 
-You are the **orchestrator**. Prefer subagents for codebase facts and for each implement ticket. Do not implement the product inline once tickets exist — drain does that.
+You are the **orchestrator**. Follow **subagent-first** ([`docs/agents/subagents.md`](../../docs/agents/subagents.md) when present): spawn a fresh subagent whenever a complete brief can carry the detail; assume the child is capable for bounded work. Stay on this parent when nuance or cross-cutting synthesis would be lost. Do not implement the product inline once tickets exist — drain does that.
 
 Brief / design notes for this package feature: [`AUTO-BUILD.md`](../../AUTO-BUILD.md) at package root (if present).
 
@@ -76,9 +76,23 @@ Short report only: tickets completed (ids/titles + commit SHAs), any leftover no
 
 ## Subagents
 
-- **Explore / research** for codebase facts during grill and charting.
-- **Implement** only via drain (one ticket per fresh subagent).
-- Parent chat stays thin: stage → claim/spawn → mark → next.
+Policy: [`docs/agents/subagents.md`](../../docs/agents/subagents.md).
+
+**Spawn (complete brief — never “look at the chat”):**
+
+- Codebase fact lookup during grill/charting (explore/research)
+- Wayfinder **research** tickets (and AFK tasks that fit a brief)
+- Optional assist drafting ticket bodies for `/to-tickets` when the slice set is already locked on the parent
+- Each implement ticket via `/drain-tickets` (one fresh `implement` subagent; never resume a finished one)
+
+**Stay on parent (high nuance):**
+
+- Destination naming from full history
+- Auto-accept grill question chain / design-tree synthesis (do **not** spawn per grill question)
+- Map index, blocking edges, claim/mark orchestration
+- One-line stage flips and the final done report
+
+Parent chat stays thin: stage → claim/spawn → mark → next.
 
 ## Non-goals
 

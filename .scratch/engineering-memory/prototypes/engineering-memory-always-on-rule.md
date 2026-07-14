@@ -48,3 +48,7 @@ Exact handoff steps live in the Engineering Memory design spec § Architecture B
 ## 3. `/tdd` habit
 
 When **writing or changing code**, use `/tdd`. Red→green, seam confirmation, and anti-pattern detail live in that skill — not duplicated here. Standing test/design preferences live in `docs/conventions.md`.
+
+## 4. Subagents
+
+Prefer a fresh subagent for bounded Loop work when a complete brief can carry the detail; stay on this agent when nuance or cross-cutting synthesis is too high. Policy: project `docs/agents/subagents.md` when present.

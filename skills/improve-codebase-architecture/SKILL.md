@@ -24,7 +24,7 @@ This is Engineering Memory’s **Architecture Review** surface (skill slug locke
 
 Read the Memory Store docs listed above first.
 
-Then use the Agent tool with `subagent_type=Explore` to walk the codebase. Don't follow rigid heuristics — explore organically and note where you experience friction:
+Then use the Agent tool with `subagent_type=Explore` to walk the codebase (**subagent-first** — see project `docs/agents/subagents.md` when present). Pass a complete brief (Store paths loaded, friction focus, areas to walk). Don't follow rigid heuristics — explore organically and note where you experience friction:
 
 - Where does understanding one concept require bouncing between many small modules?
 - Where are modules **shallow** — interface nearly as complex as the implementation?
@@ -34,7 +34,7 @@ Then use the Agent tool with `subagent_type=Explore` to walk the codebase. Don't
 
 Apply the **deletion test** to anything you suspect is shallow: would deleting it concentrate complexity, or just move it? A "yes, concentrates" is the signal you want.
 
-Parent owns Store load, report, grilling, and fold-back. Explore is invoke-only for the walk.
+Parent owns Store load, report, grilling, and fold-back (high-nuance synthesis). Explore is invoke-only for the walk. Do not keep the next Architecture Review’s walk in a finished Explore context — spawn new.
 
 ### 2. Present candidates as an HTML report
 

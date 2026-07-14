@@ -10,8 +10,9 @@ I also want to launch with a fully autonomous, one shot prompt mode, where it wi
 
 - **Ship as:** on-demand skill `/auto-build` (orchestrator only — not an always-on rule).
 - **Seed:** when invoked mid-conversation, the seed is the **entire prior conversation history** (plus the invoke). Fresh chat = the starting user prompt. Do not re-ask decisions already answered in history.
-- **Autonomy:** auto-accept every grill recommendation; keep narration/reasoning minimal; spawn subagents for codebase facts / implement drain; parent stays thin.
+- **Autonomy:** auto-accept every grill recommendation; keep narration/reasoning minimal; parent stays thin.
 - **Packaging:** commit Wayfinder into this package; also package `grill-me`, `grill-with-docs`, `to-tickets`, `drain-tickets` (keep existing `grilling` / `domain-modeling`).
+- **Subagent-first (framework-wide):** spawn a fresh subagent whenever a complete brief can carry full detail; assume the child is capable for bounded work. Stay on the parent when cross-cutting nuance or live multi-decision synthesis would be lost by summarizing. Canonical policy: [`docs/agents/subagents.md`](docs/agents/subagents.md).
 
 ## Pipeline
 
