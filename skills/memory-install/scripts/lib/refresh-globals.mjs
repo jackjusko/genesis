@@ -3,6 +3,7 @@ import path from "node:path";
 /** Package-owned dependency skills — always overwrite on Install. */
 export const DEPENDENCY_SKILLS = [
   "tdd",
+  "prove-it",
   "codebase-design",
   "domain-modeling",
   "grilling",

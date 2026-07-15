@@ -17,11 +17,11 @@ Deliver the hybrid package described in the spec:
 
 1. **User-global Loop** ? always-on rule `engineering-memory`, skill `memory-install`, Architecture Review via evolving `improve-codebase-architecture` in place. ?
 2. **Project-local Store scaffold** ? full Install drop + AGENTS.md `## Engineering Memory` section per merge/preflight/ours-marker rules. ?
-3. **Behaviors** ? Store Sync, Architecture Bias (ordinary stretch + plan-sized Wayfinder handoff), `/tdd` habit wiring as specified. ?
+3. **Behaviors** ? Store Sync, Architecture Bias (ordinary stretch + plan-sized Wayfinder handoff), `/tdd` habit, Prove-it (cardinal sin / handoff / `/prove-it` all-paths + vision + play/feel / Spec fidelity / fix-loop) wiring as specified. ?
 
 ## Out of scope (leave deferred)
 
-Items listed in spec § Open questions / deferred (hooks/CI enforcement, monorepo Store, Loop evaluation harness, version pins/changelogs, active-effort pointers).
+Items listed in spec ï¿½ Open questions / deferred (hooks/CI enforcement, monorepo Store, Loop evaluation harness, version pins/changelogs, active-effort pointers).
 
 ## Done when
 

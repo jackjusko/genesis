@@ -4,7 +4,7 @@ Framework-wide **subagent-first** policy for Engineering Memory Loop orchestrati
 
 ## Default
 
-Spin up a **fresh** subagent for any bounded task whose inputs fit a **complete brief** (paths, acceptance criteria, constraints, relevant seed quotes). Assume the subagent model is capable for that bounded work.
+Spin up a **fresh** subagent for any bounded task whose inputs fit a **complete brief** (paths, acceptance criteria, constraints, relevant seed quotes). For `/drain-tickets` implement spawns, the brief must include the **plan context pack** (Destination, Notes/Out of scope, relevant decisions, blocker Answers, ticket body) — see `skills/drain-tickets/SKILL.md`. Assume the subagent model is capable for that bounded work.
 
 Do not keep doing the next bounded task in a finished subagent’s context — spawn new.
 

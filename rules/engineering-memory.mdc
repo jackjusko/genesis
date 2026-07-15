@@ -1,5 +1,5 @@
 ---
-description: Engineering Memory — Store Sync, Architecture Bias, and /tdd habit
+description: Engineering Memory — Store Sync, Architecture Bias, /tdd habit, and Prove-it
 alwaysApply: true
 ---
 
@@ -9,8 +9,9 @@ Always-on Loop duties for repos that use Engineering Memory. Apply when the sess
 
 ## 1. Store Sync
 
-- **Session start:** load the relevant Memory Store docs for the work ahead via the project `## Engineering Memory` AGENTS.md index (do not invent paths).
-- **Same-batch write:** when the change creates or renames a seam/module, shifts a convention, earns a deep-dive, or crystallizes product identity/vision/goals, update the Store **in the same batch**. Do not invent goals the user never stated.
+- **Session start:** load the relevant Memory Store docs for the work ahead via the project `## Engineering Memory` AGENTS.md index (do not invent paths). When the session will **write or change code**, always load `docs/architecture.md` (+ linked deep-dives) — do not wait until you already judge the change “structural.” Include Product Intent when the session touches identity / vision / goals.
+- **Same-batch write:** update the Store **in the same batch** when the change alters module collaboration, a public Interface, package/folder topology, creates or renames a seam/module, shifts a convention, earns a deep-dive, or crystallizes product identity/vision/goals. Do not invent goals the user never stated.
+- **Architecture freshness (before Done / session end with code changes):** the Architecture Corpus must match **today’s** shape. Install `_TODO_`s still present while real modules exist = **not done** — fill the primary doc and/or earn deep-dives in-batch, or stop and run Architecture Review if the gap is plan-sized. Do not claim Done / ready-for-user with a stub or drifted corpus.
 - **Session end:** write back any other material Store changes before finishing (glossary sharpening, corpus corrections, earned conventions, crystallized identity/vision/goals).
 
 Do not rely on an optional sync skill — Sync is this rule only.
@@ -45,6 +46,38 @@ Exact handoff steps live in the Engineering Memory design spec § Architecture B
 
 When **writing or changing code**, use `/tdd`. Red→green, seam confirmation, and anti-pattern detail live in that skill — not duplicated here. Standing test/design preferences live in `docs/conventions.md`.
 
-## 4. Subagents
+## 4. Prove-it
+
+Shipping a **non-functional** deliverable, or one **far off** the locked Destination/spec in capability **or experience**, then claiming Done / ready-for-user is a **cardinal sin**. Do **not** hand the user a half-broken scaffold to debug — deliver every Destination-named path working, looking finished, and feeling intentional where play/graphics apply. On Prove-it failure: **debug, fix, and loop** (re-run smoke / fidelity). Never stop with a gap report unless absolutely necessary (named hard blocker only: credentials, user-only machine state, irreversible external dependency).
+
+Full simulation playbook (path inventory, debug boot, vision pass, play/feel): **`/prove-it`**. Detail lives there — not duplicated here. Thin gates in `/auto-build` / `/drain-tickets` invoke that playbook.
+
+### Handoff
+
+- **Trigger:** about to instruct the user to run a shell/CLI command locally.
+- **Required:** run that same command in-session first; confirm success from fresh output.
+- **On failure:** do not hand off; debug, fix, and re-run until it succeeds (gap report only on named hard blocker).
+- **Prefer self-run:** if the agent can complete the work, run it and skip the handoff.
+- **Narrow exceptions** (name which): user credentials / interactive TTY / user-only machine state. Verify everything that can be verified first.
+- **Handoff line:** brief proof (exit code / one success line). No long logs.
+
+### Runtime smoke (manual simulation QA)
+
+- **Trigger:** about to claim a **runnable** deliverable works, is finished, or is ready for the user to try (including auto-build Done and drain empty-frontier for apps/games/CLIs/sites — and everyday feature work).
+- **Required:** follow `/prove-it` — prefer **debug/dev** boot; inventory and exercise **every Destination-named user path** (not happy-path only); confirm with tools (process/port/browser snapshot/screenshot/game readiness). Match the product shape.
+- **Vision:** surfaces must look **complete to an end user** — no blank/placeholder/stub chrome, broken layout, missing assets, or obvious visual glitches on paths exercised.
+- **Not sufficient alone:** compile success, typecheck, unit tests, tickets-resolved, or “should work.”
+- **On failure:** not done — debug, fix, re-smoke, loop. Do not tell the user to try a broken boot. Gap report only on named hard blocker.
+- **Exceptions** (name which): true hardware/secret/interactive-only steps the session cannot perform — still smoke everything that can run in-session.
+
+### Spec fidelity
+
+- **Trigger:** about to emit Done / “ready to try” for work with a locked Destination or `spec.md` (including `/auto-build` / drain and everyday development toward a Destination).
+- **Required:** realize **all Destination-named paths and capabilities**, exercised under `/prove-it` where tools allow — not merely the primary happy path.
+- **Far off / hollow** includes: blank or placeholder UI, stub flows, missing core loop/workflow, project that opens when Destination required a finished usable product, or a Spec-checklist pass that still feels unfinished.
+- **Experience bar:** when Destination implies gameplay, motion, or graphical UI, require a **smooth, dynamic, intentional** play/feel or graphical experience — **beyond** the bare minimum that ticks Spec lines. Softlocks, dead input, frozen “live” systems, and hollow tech-demo emptiness fail Prove-it.
+- **On gap:** not Done — diagnose, implement the missing capability or polish, re-verify; repeat until fidelity passes. Gap report to the user **only** if a named hard blocker makes further progress impossible.
+
+## 5. Subagents
 
 Prefer a fresh subagent for bounded Loop work when a complete brief can carry the detail; stay on this agent when nuance or cross-cutting synthesis is too high. Policy: project `docs/agents/subagents.md` when present.

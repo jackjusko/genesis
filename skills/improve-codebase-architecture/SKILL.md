@@ -16,7 +16,7 @@ This is Engineering Memory’s **Architecture Review** surface (skill slug locke
 - Run the `/codebase-design` skill for the architecture vocabulary (**module**, **interface**, **depth**, **seam**, **adapter**, **leverage**, **locality**) and its principles (the deletion test, "the interface is the test surface", "one adapter = hypothetical seam, two = real"). Use these terms exactly in every suggestion — don't drift into "component," "service," "API," or "boundary."
 - Load the Memory Store first when present: `CONTEXT.md`, `docs/product.md`, `docs/architecture.md` (+ linked deep-dives), `docs/conventions.md`, and ADRs in `docs/adr/` for the area you’re touching. Use the project `## Engineering Memory` AGENTS.md index for paths. If Store pieces are missing, **note the gaps and degrade** — do not invent architecture.
 
-**Triggers:** milestone/phase boundaries, friction (Store Sync thrash, hard-to-test seams, agent can’t locate a seam), or manual invoke. Not a fixed every-N-sessions ritual.
+**Triggers:** milestone/phase boundaries; friction (Store Sync thrash, hard-to-test seams, agent can’t locate a seam); corpus still Install-stubbed (`_TODO_`s) while real structure exists; agent cannot answer a structure question from the Store; after auto-build / major Destination completion when architecture drifted; or manual invoke. Not a fixed every-N-sessions ritual.
 
 ## Process
 

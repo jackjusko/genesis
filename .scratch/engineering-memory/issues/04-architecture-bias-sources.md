@@ -22,7 +22,7 @@ Note from map: `/tdd` is a Loop habit and Bias seed ? research should say how it
 
 **Cite vs paraphrase:** conventions hold standing preferences agents apply without a skill invoke; skills hold procedures and catalogs. Never paste a whole skill into `docs/conventions.md`.
 
-Full write-up: [research/architecture-bias-sources.md](../research/architecture-bias-sources.md). Spec § Architecture Bias updated.
+Full write-up: [research/architecture-bias-sources.md](../research/architecture-bias-sources.md). Spec ï¿½ Architecture Bias updated.
 
 ## Answer
 
@@ -36,4 +36,4 @@ Full write-up: [research/architecture-bias-sources.md](../research/architecture-
 
 **Cite vs paraphrase:** conventions hold standing preferences agents apply without a skill invoke; skills hold procedures and catalogs. Never paste a whole skill into `docs/conventions.md`.
 
-Full write-up: [research/architecture-bias-sources.md](../research/architecture-bias-sources.md). Spec § Architecture Bias updated.
+Full write-up: [research/architecture-bias-sources.md](../research/architecture-bias-sources.md). Spec ï¿½ Architecture Bias updated.

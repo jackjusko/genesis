@@ -40,7 +40,7 @@ Globals written every invoke:
 | Package-owned deps (core-four + auto-build pipeline) | `~/.agents/skills/<slug>/` (always overwrite) |
 | Package mirror (for later refreshes) | `~/.agents/engineering-memory/` (`rules/` + `skills/`) |
 
-See [DEPENDENCIES.md](../DEPENDENCIES.md) for the closed dependency set (`tdd`, `codebase-design`, `domain-modeling`, `grilling`, `auto-build`, `wayfinder`, `grill-me`, `grill-with-docs`, `to-tickets`, `drain-tickets`).
+See [DEPENDENCIES.md](../DEPENDENCIES.md) for the closed dependency set (`tdd`, `prove-it`, `codebase-design`, `domain-modeling`, `grilling`, `auto-build`, `wayfinder`, `grill-me`, `grill-with-docs`, `to-tickets`, `drain-tickets`).
 
 ### 2. Project preflight
 
@@ -78,7 +78,7 @@ Tell the user:
 - Project status: installed / no-op / conflicts + merge offer
 - Any non-canonical architecture warnings
 
-Remind them the always-on rule covers Store Sync, Architecture Bias (ordinary vs plan-sized), and the `/tdd` habit — no optional sync skill.
+Remind them the always-on rule covers Store Sync, Architecture Bias (ordinary vs plan-sized), the `/tdd` habit, and Prove-it (cardinal sin / handoff / `/prove-it` simulation / Spec fidelity / fix-loop) — no optional sync skill.
 
 ## Templates
 

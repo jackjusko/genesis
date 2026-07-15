@@ -29,7 +29,7 @@ How should `/improve-codebase-architecture` be packaged as Architecture Review f
 
 No parallel review log or findings dump. If the session only browsed candidates and picked none, no Store write is required.
 
-**Triggers** (unchanged from map charting): milestone/phase boundaries + friction; manual invoke allowed.
+**Triggers** (amended ticket 17): milestone/phase boundaries + friction + stub corpus / Store-blind / post-Destination drift; manual invoke allowed.
 
 ## Answer
 
@@ -74,7 +74,7 @@ Browse-only (no candidate chosen) ? no Store write required.
 
 ### Triggers
 
-Milestone/phase boundaries + friction (Store Sync thrash, hard-to-test seams, agent can?t locate a seam); manual invoke allowed. Not every-N-sessions.
+Milestone/phase boundaries; friction (Store Sync thrash, hard-to-test seams, agent can't locate a seam); corpus still Install-stubbed while real structure exists; agent cannot answer a structure question from the Store; after auto-build / major Destination completion when architecture drifted; manual invoke allowed. Not every-N-sessions.
 
 ### Rejected alternatives
 
@@ -85,7 +85,7 @@ Milestone/phase boundaries + friction (Store Sync thrash, hard-to-test seams, ag
 5. **Parallel review log / last-reviewed stamp.** Second brain beside the Store; fold-back into corpus/glossary/ADRs/conventions is the durable trail.
 6. **Auto-write ADRs** on every rejection. Ephemeral ?not now? reasons must not litter `docs/adr/`; offer only when the reason must block re-suggestion.
 
-Detail: [spec.md § Architecture Review](../spec.md).
+Detail: [spec.md ï¿½ Architecture Review](../spec.md).
 
 ## Comments
 

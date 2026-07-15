@@ -17,15 +17,15 @@ The Memory Store doc at `docs/product.md` for durable project identity, vision, 
 _Avoid_: product vision (alone when meaning the Store doc), roadmap, PRD (as Store content)
 
 **Architecture Corpus**:
-The Memory Store documents that describe the system’s structure and module seams. Default load is one primary architecture doc (scaffolded on Memory Install); linked deep-dives are filled liberally when a subsystem has earned its own home — scaffold may include an empty deep-dive folder, not a wall of pre-written subsystem docs.
+The Memory Store documents that describe the system’s structure and module seams. Default load is one primary architecture doc (scaffolded on Memory Install): System shape covers topology, main request/data flows, and named entrypoints; Key seams lists every top-level seam. Linked deep-dives are filled when a subsystem needs more than one hop to explain, has been touched across sessions, or would bloat Key seams — scaffold may include an empty deep-dive folder, not a wall of pre-written subsystem docs. After real modules exist, leaving Install `_TODO_`s in the primary doc is a Store Sync failure.
 _Avoid_: architecture dump, system overview (when used as the corpus name)
 
 **Memory Loop**:
-The installed agent behaviors that force reference and update of the Memory Store. Default Cursor split: **AGENTS.md** as index, **one always-on rule** for Store Sync + Architecture Bias + the `/tdd` habit (use when writing or changing code — not a separate Install skill), **skills** for Memory Install + Architecture Review only (no optional sync skill — Store Sync is always-on), **subagents** only when a workflow is long enough to isolate (e.g. Architecture Review explore). Built from existing Cursor skills and organic practice, not a parallel process framework.
+The installed agent behaviors that force reference and update of the Memory Store. Default Cursor split: **AGENTS.md** as index, **one always-on rule** for Store Sync + Architecture Bias + the `/tdd` habit (use when writing or changing code — not a separate Install skill) + Prove-it, **skills** for Memory Install + Architecture Review only (no optional sync skill — Store Sync is always-on), **subagents** only when a workflow is long enough to isolate (e.g. Architecture Review explore). Built from existing Cursor skills and organic practice, not a parallel process framework.
 _Avoid_: process (alone), hooks (alone), automation
 
 **Store Sync**:
-The Memory Loop obligation for Store freshness: load relevant Store docs at session start; write back material changes before the session ends; update the Store in the same batch as the code when a change is structural (new seam, renamed module, convention shift).
+The Memory Loop obligation for Store freshness: load relevant Store docs at session start (always load the Architecture Corpus when writing/changing code); write back material changes before the session ends; update the Store in the same batch when module collaboration, public Interfaces, package/folder topology, seams/modules, conventions, or crystallized product intent change; **architecture freshness gate** before Done / session end with code changes (stub or drifted corpus = not done).
 _Avoid_: constant update, always sync
 
 **Architecture Bias**:
@@ -37,5 +37,5 @@ The one-shot skill that lays down Engineering Memory in a target repo, and the *
 _Avoid_: bootstrap (alone), setup script, memory-upgrade (as a separate skill)
 
 **Architecture Review**:
-A deepening pass: the `/improve-codebase-architecture` skill evolved in place (not a fork; slug locked), surfaced under this name. Same explore → temp HTML → grill process; when decisions crystallize, findings fold back into the Memory Store (Architecture Corpus, glossary, ADRs when earned, conventions when earned) — no parallel review log. Default triggers: milestone/phase boundaries, and friction (repeated Store Sync thrash, hard-to-test seams, agent can’t locate a seam). Manual invoke remains available; not a fixed every-N-sessions ritual.
+A deepening pass: the `/improve-codebase-architecture` skill evolved in place (not a fork; slug locked), surfaced under this name. Same explore → temp HTML → grill process; when decisions crystallize, findings fold back into the Memory Store (Architecture Corpus, glossary, ADRs when earned, conventions when earned) — no parallel review log. Default triggers: milestone/phase boundaries; friction (repeated Store Sync thrash, hard-to-test seams, agent can’t locate a seam); corpus still Install-stubbed while real structure exists; agent cannot answer a structure question from the Store; after auto-build / major Destination completion when architecture drifted. Manual invoke remains available; not a fixed every-N-sessions ritual.
 _Avoid_: refactor sweep, cleanup pass

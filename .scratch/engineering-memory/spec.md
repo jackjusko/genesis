@@ -56,11 +56,11 @@ Durable project identity, vision, goals, and non-goals. Install drops the stub v
 
 Install drops the template validated in [prototypes/architecture-md-template.md](prototypes/architecture-md-template.md). Keep `<!-- engineering-memory:install -->`; strip the PROTOTYPE comment only.
 
-**Structure (order fixed):** H1 `# Architecture` + opening preamble (purpose, Store pointers to `CONTEXT.md` / `docs/adr/` / `docs/conventions.md`, how-to-use + write-today rule) → exact H2s `## System shape` → `## Key seams` → `## Deep-dives` → `## Out of scope for this doc`. Those four H2 titles are the interactive-merge required-section contract (add missing only; never delete prose). Opening is not a separate H2.
+**Structure (order fixed):** H1 `# Architecture` + opening preamble (purpose, Store pointers to `CONTEXT.md` / `docs/adr/` / `docs/conventions.md`, how-to-use + write-today rule + Sync-failure cue for leftover `_TODO_`s after real structure exists) → exact H2s `## System shape` → `## Key seams` → `## Deep-dives` → `## Out of scope for this doc`. Those four H2 titles are the interactive-merge required-section contract (add missing only; never delete prose). Opening is not a separate H2.
 
-**Stub depth:** Repo-independent prose filled (opening, deep-dives intro, out-of-scope). Repo-specific sections: HTML guidance comments + one `_TODO_` (System shape may include a commented mermaid skeleton; Key seams use recipe `**SeamName** - Interface: ...; varies: ...` with codebase-design vocabulary). Not empty headings, not fictional architecture.
+**Stub depth:** Repo-independent prose filled (opening, deep-dives intro + earn cues, out-of-scope). Repo-specific sections: HTML guidance comments + one `_TODO_` (System shape: topology + main request/data flows + named entrypoints, optional commented mermaid; Key seams: **every** top-level seam with recipe `**SeamName** - Interface: ...; varies: ...` and codebase-design vocabulary). Not empty headings, not fictional architecture. After real modules exist, leaving Install `_TODO_`s is a Store Sync failure.
 
-**Deep-dive index:** Table (`Deep-dive` | `When to open it`) in the primary doc; links `architecture/<kebab-slug>.md`. Install starts with `_(none yet)_`; first earn **replaces** that row. No pre-seeded deep-dive files.
+**Deep-dive index:** Table (`Deep-dive` | `When to open it`) in the primary doc; links `architecture/<kebab-slug>.md`. Install starts with `_(none yet)_`; first earn **replaces** that row. Earn when a subsystem needs more than one hop to explain, has been touched across sessions, or would bloat Key seams — prefer earning early. No pre-seeded deep-dive files.
 
 ### Other Store Install stubs
 
@@ -78,13 +78,14 @@ Brownfield merge: see Memory Install.
 
 Closed inventory (detail: [issues/07-loop-artifact-inventory.md](issues/07-loop-artifact-inventory.md)): four Install-owned surfaces (AGENTS index + always-on rule + Memory Install + Architecture Review) and Explore invoke-only. Exact stub/rule bodies: tickets 11–12 / prototypes linked below.
 
-**Project — `## Engineering Memory` in AGENTS.md:** index only. Exact Install stub: [prototypes/agents-md-engineering-memory-section.md](prototypes/agents-md-engineering-memory-section.md) (strip PROTOTYPE comment; ours marker is the heading — no HTML install marker). H3 clusters: **Memory Store** (canonical Store paths including `docs/product.md`; path list order owned with the AGENTS stub), **Loop** (always-on rule title/slug + three duties named, body not pasted; Memory Install + Architecture Review display+slug), **Planning** (ideas, PRDs, and wayfinder/maps are not Store paths until fold-back). No procedure bodies, sync checklists, or conventions prose.
+**Project — `## Engineering Memory` in AGENTS.md:** index only. Exact Install stub: [prototypes/agents-md-engineering-memory-section.md](prototypes/agents-md-engineering-memory-section.md) (strip PROTOTYPE comment; ours marker is the heading — no HTML install marker). H3 clusters: **Memory Store** (canonical Store paths including `docs/product.md`; path list order owned with the AGENTS stub), **Loop** (always-on rule title/slug + four duties named, body not pasted; Memory Install + Architecture Review display+slug), **Planning** (ideas, PRDs, and wayfinder/maps are not Store paths until fold-back). No procedure bodies, sync checklists, or conventions prose.
 
-**User-global — always-on rule `engineering-memory`:** three duties only (`~/.cursor/rules/engineering-memory.mdc`, `alwaysApply: true`). Exact body: [prototypes/engineering-memory-always-on-rule.md](prototypes/engineering-memory-always-on-rule.md) (strip PROTOTYPE comment; frontmatter included).
+**User-global — always-on rule `engineering-memory`:** four duties (`~/.cursor/rules/engineering-memory.mdc`, `alwaysApply: true`). Exact body: [prototypes/engineering-memory-always-on-rule.md](prototypes/engineering-memory-always-on-rule.md) (strip PROTOTYPE comment; frontmatter included).
 
-1. **Store Sync** — load relevant Store at session start **via** the project AGENTS index (no path list in the rule), including Product Intent when the session touches identity / vision / goals; write back material changes before session end; same-batch update on structural change **or** crystallized identity/vision/goals (never invent goals the user never stated). No optional sync skill.
+1. **Store Sync** — load relevant Store at session start **via** the project AGENTS index (do not invent paths / do not paste the full Store path list), including Product Intent when the session touches identity / vision / goals; when writing/changing code, **always** load `docs/architecture.md` (+ linked deep-dives); same-batch update when module collaboration, public Interface, package/folder topology, seam/module create/rename, convention shift, earned deep-dive, or crystallized identity/vision/goals change (never invent goals the user never stated); **architecture freshness gate** before Done / session end with code changes (Install `_TODO_`s with real modules present = not done); write back other material changes before session end. No optional sync skill. Thin freshness gates also in `auto-build` / `drain-tickets`.
 2. **Architecture Bias** — soft deep-module defaults + agent-authored conventions; ADRs win; never-installed Store → note gap, degrade. Prefer expanding architecture over hacky/short-term fit (extension must fit existing corpus + bias). **Ordinary stretch:** design → implement → Store write same batch. **Plan-sized:** stop (unless user overrides to ordinary stretch); offer **Automatic** / **Critical only** (default if unset) / **Full grill**; plan outside Store; Destination = architecture/design decision, **or** Product Intent decision when the blocker is what/why; Destination met → Store fold-back then implement (Automatic does not skip fold-back). Exact Wayfinder handoff mechanics → [issues/13-plan-sized-architecture-handoff.md](issues/13-plan-sized-architecture-handoff.md) (not pasted into the rule).
 3. **`/tdd` habit** — use `/tdd` when writing/changing code; procedure stays in the skill (not a separate Install skill).
+4. **Prove-it** — always-on (everyday development, not only auto-build). **Cardinal sin:** shipping non-functional, far-off-Destination / hollow, or unfinished-feel deliverables, or handing the user a half-broken scaffold to debug. (a) **Handoff:** verify commands in-session before recommending them locally. (b) **Runtime smoke:** debug/dev boot + **every Destination-named user path** + vision completeness via **`/prove-it`** before Done (not happy-path only). (c) **Spec fidelity:** all Destination-named paths/capabilities must work; when play/graphics apply, require smooth/dynamic/intentional experience **beyond** bare Spec checkboxes. On failure: **debug → fix → loop**; gap report only on named hard blocker. Exact triggers/bar in the always-on prototype; full playbook in `skills/prove-it/` (packaged dependency like `/tdd`); thin gates in `auto-build` / `drain-tickets`.
 
 **User-global — `memory-install`:** sole updater of the global Loop set — every invoke replaces rule + both skills with packaged latest from the package root (globals complete before project; no rollback of globals on project conflict), then full-scaffold / merge-preflight the project Store + AGENTS.md section (per Memory Install; Store + AGENTS never auto-upgraded from newer stubs). Not Review, not living architecture beyond stubs, not hooks/CI.
 
@@ -152,7 +153,7 @@ Packaged by **evolving** `/improve-codebase-architecture` **in place** (no wrapp
 
 No parallel review log. Browse-only session (no candidate chosen) → no Store write.
 
-**Triggers:** milestone/phase boundaries + friction; manual invoke allowed (not every-N-sessions).
+**Triggers:** milestone/phase boundaries; friction (Store Sync thrash, hard-to-test seams, agent can’t locate a seam); corpus still Install-stubbed while real structure exists; agent cannot answer a structure question from the Store; after auto-build / major Destination completion when architecture drifted; manual invoke allowed. Not every-N-sessions.
 
 ## Architecture Bias
 
@@ -187,7 +188,7 @@ Exact mechanics (detail: [issues/13-plan-sized-architecture-handoff.md](issues/1
 
 Deferred past this design (not required to implement v1 Engineering Memory):
 
-- Mechanical enforcement of Store Sync (hooks, CI, linters) — normative Loop first.
+- Mechanical enforcement of Store Sync (hooks, CI, linters) — normative Loop first (architecture freshness Done gates are normative, not mechanical).
 - Monorepo / multi-package Memory Store shape (no default `CONTEXT-MAP.md` in v1).
 - How to evaluate in practice that agents are obeying the Loop.
 - Version pins / changelogs between global Loop releases and already-installed repos.

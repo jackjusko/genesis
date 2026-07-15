@@ -7,6 +7,7 @@ import {
 
 const EXPECTED_DEPS = [
   "tdd",
+  "prove-it",
   "codebase-design",
   "domain-modeling",
   "grilling",

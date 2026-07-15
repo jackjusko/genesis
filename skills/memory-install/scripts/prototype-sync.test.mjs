@@ -133,11 +133,56 @@ describe("packaged Install drops match locked prototypes", () => {
     assert.match(rule, /does not own maps or tickets|Store does not own maps/);
   });
 
-  it("always-on rule points at subagent-first policy", () => {
+  it("always-on rule includes architecture freshness gate", () => {
     const rule = read("rules/engineering-memory.mdc");
-    assert.match(rule, /## 4\. Subagents/);
-    assert.match(rule, /docs\/agents\/subagents\.md/);
-    assert.match(rule, /complete brief|nuance|cross-cutting/i);
+    assert.match(rule, /Architecture freshness/);
+    assert.match(rule, /write or change code/i);
+    assert.match(rule, /docs\/architecture\.md/);
+    assert.match(rule, /_TODO_/);
+    assert.match(rule, /module collaboration|public Interface|package\/folder topology/);
+  });
+
+  it("docs/architecture.md stub keeps richer skim contract", () => {
+    const body = normalize(
+      read("skills/memory-install/templates/docs/architecture.md"),
+    );
+    assert.match(body, /^# Architecture\s*$/m);
+    const h2s = [...body.matchAll(/^## (.+)$/gm)].map((m) => m[1]);
+    assert.deepEqual(h2s, [
+      "System shape",
+      "Key seams",
+      "Deep-dives",
+      "Out of scope for this doc",
+    ]);
+    assert.match(body, /Store Sync failure/);
+    assert.match(body, /request\/data flows/);
+    assert.match(body, /every top-level seam/);
+    assert.match(body, /Earn a deep-dive when/);
+  });
+
+  it("Architecture Review triggers include stub corpus and Store-blind", () => {
+    const body = fs.readFileSync(
+      path.join(
+        packageRoot,
+        "skills",
+        "improve-codebase-architecture",
+        "SKILL.md",
+      ),
+      "utf8",
+    );
+    assert.match(body, /Install-stubbed|_TODO_/);
+    assert.match(body, /cannot answer a structure question/);
+    assert.match(body, /Destination completion|architecture drifted/);
+  });
+
+  it("prove-it skill ships path inventory, vision, and play/feel playbook", () => {
+    const skill = read("skills/prove-it/SKILL.md");
+    assert.match(skill, /^name:\s*prove-it\s*$/m);
+    assert.match(skill, /## 1\. Inventory paths/);
+    assert.match(skill, /## 2\. Debug \/ dev boot/);
+    assert.match(skill, /## 4\. Vision pass/);
+    assert.match(skill, /## 5\. Play \/ feel/);
+    assert.match(skill, /beyond.*bare/i);
   });
 
   it("AGENTS Memory Store bullets follow ticket 02 path order", () => {

@@ -7,6 +7,7 @@ Closed set of **package-owned** on-demand skills that Memory Install always over
 | Slug | Why Engineering Memory needs it |
 |------|----------------------------------|
 | `tdd` | Always-on `/tdd` habit; Bias / conventions seed |
+| `prove-it` | Always-on Prove-it simulation playbook (path inventory, vision, play/feel) |
 | `codebase-design` | Architecture Bias + Architecture Review vocabulary |
 | `domain-modeling` | Store fold-back for glossary + ADRs |
 | `grilling` | Architecture Review interview after candidate pick |

@@ -101,6 +101,7 @@ describe("runMemoryInstall integration", () => {
     );
     for (const slug of [
       "tdd",
+      "prove-it",
       "codebase-design",
       "domain-modeling",
       "grilling",

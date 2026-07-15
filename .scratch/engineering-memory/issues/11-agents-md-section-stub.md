@@ -31,7 +31,7 @@ Re-resolved against closed Loop index duties (ticket 07), Store path set (ticket
 1. **Architecture-first Store bullet order** (prior stub). Rejected: agents matching inventory should see ticket 02 closed-set order -- `CONTEXT.md`, `docs/adr/`, `docs/architecture.md`, `docs/architecture/`, `docs/conventions.md`.
 2. **Flat bullets under the H2 (no H3 clusters).** Rejected: Store vs Loop vs Planning is the index job; three cheap H3s keep clusters scannable without procedure bodies.
 3. **HTML `<!-- engineering-memory:install -->` inside the AGENTS section.** Rejected by ticket 10 -- heading `## Engineering Memory` is the ours marker; no second marker.
-4. **Paste always-on rule body, sync checklists, Explore, or `/tdd` as an Install skill.** Rejected by ticket 07 -- index names the three duties and two skills only; Explore is invoke-only; `/tdd` is habit via the rule.
+4. **Paste always-on rule body, sync checklists, Explore, or `/tdd` as an Install skill.** Rejected by ticket 07 -- index names the four duties and two skills only; Explore is invoke-only; `/tdd` / Prove-it are habits via the rule.
 
 **Locked Install drop:** [prototypes/agents-md-engineering-memory-section.md](../prototypes/agents-md-engineering-memory-section.md). Strip the PROTOTYPE comment only. No HTML install marker in this section.
 
@@ -42,7 +42,7 @@ Re-resolved against closed Loop index duties (ticket 07), Store path set (ticket
 | Heading | exact `## Engineering Memory` | Ours marker (ticket 10); append section when missing; never whole-file replace |
 | Purpose | one line under H2 | Index of Store + Loop wiring; load cue when session touches structure / domain / conventions |
 | Memory Store | exact H3 `### Memory Store` | Five canonical paths (ticket 02 order), relative links from repo root, short role labels |
-| Loop | exact H3 `### Loop` | Always-on **Engineering Memory** (`engineering-memory`) with three duties named, body not pasted; skills **Memory Install** + **Architecture Review** (display + slug) |
+| Loop | exact H3 `### Loop` | Always-on **Engineering Memory** (`engineering-memory`) with four duties named, body not pasted; skills **Memory Install** + **Architecture Review** (display + slug) |
 | Planning | exact H3 `### Planning` | Wayfinder / planning maps are not Memory Store paths; durable outcomes land in Store after decisions resolve |
 
 No procedure bodies, sync checklists, conventions prose, or skill bodies.
